@@ -6,13 +6,8 @@ import com.vsf.S15.Inception.InceptionComplexType;
 
 public class NuevoInception extends InceptionComplexType {
 
-	public NuevoInception(InceptionComplexType tdInception, String eventType, String eventDate, String eventContractID,
-			String companyCode) throws DatatypeConfigurationException {
+	public NuevoInception(InceptionComplexType tdInception) throws DatatypeConfigurationException {
 
-		this.setEventType(eventType);
-		this.setEventDate(Utiles.FechaXML(eventDate));
-		this.setEventContractID(eventContractID);
-		this.setCompanyCode(companyCode);
 		
 
 	

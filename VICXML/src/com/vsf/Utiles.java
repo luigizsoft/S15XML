@@ -17,6 +17,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
+import com.vsf.S15.Inception.DeviceComplexType;
 import com.vsf.S15.Inception.InceptionComplexType;
 import com.vsf.S15.Inception.Inceptions;
 import com.vsf.S15.Inception.InceptionsComplexType;
@@ -94,19 +95,24 @@ public class Utiles {
 		}
 	}
 
-	public static  InceptionComplexType NuevoInception(InceptionComplexType ObjInception,
-													String eventType, 
-													String eventDate, 
-													String eventContractID,
-													String companyCode) throws DatatypeConfigurationException{
-		ObjInception.setEventType(eventType);
-		ObjInception.setEventDate(Utiles.FechaXML(eventDate));
-		ObjInception.setEventContractID(eventContractID);
-		ObjInception.setCompanyCode(companyCode);
+	public static  InceptionComplexType NuevoInception(InceptionComplexType ObjInception) throws DatatypeConfigurationException{
 		
 		return ObjInception;
 		
 	}
+//	public static  InceptionComplexType NuevoInception(InceptionComplexType ObjInception,
+//			String eventType, 
+//			String eventDate, 
+//			String eventContractID,
+//			String companyCode) throws DatatypeConfigurationException{
+//ObjInception.setEventType(eventType);
+//ObjInception.setEventDate(Utiles.FechaXML(eventDate));
+//ObjInception.setEventContractID(eventContractID);
+//ObjInception.setCompanyCode(companyCode);
+
+//return ObjInception;
+
+//}
 
 	
 
@@ -119,6 +125,17 @@ public class Utiles {
 
 
 	}
+
+	public static void addDeviceAtrib(DeviceComplexType Device, String s_CD_POB, String s_ID_Unico, String s_StartDate, String s_EndDate) throws DatatypeConfigurationException{
+		
+		Device.setDeviceCode(s_CD_POB);
+		Device.setDeviceID(s_ID_Unico);
+		Device.setDeviceTransferDate(FechaXML(s_StartDate));
+		
+
+
+	}
+
 
 
 
