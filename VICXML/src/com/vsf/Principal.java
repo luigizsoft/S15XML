@@ -47,14 +47,26 @@ public class Principal {
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	
-//	static Inceptions S15Incept = new Inceptions();
-	
+	// Variables de los objetos
+	static final Inceptions S15Incept = new Inceptions();
+	static final InceptionsComplexType lstInceptions = new InceptionsComplexType(); // Lista de inceptions
+	static final InceptionComplexType tdInception = new InceptionComplexType();
+	static final ServiceListComplexType vListaServ = new ServiceListComplexType(); // Nueva Lista de servicios
+	static final DeviceListComplexType vListaDev = new DeviceListComplexType();// Nueva Lista de servicios
+
+
 	
 	public static void main(String[] args) throws IOException, DatatypeConfigurationException, JAXBException  {
 		// TODO Auto-generated method stub
 		String Fichero=args[0];
 		String linea;
 		String[]Campos;
+		
+		Inceptions S15Incept = new Inceptions();
+		InceptionsComplexType lstInceptions = new InceptionsComplexType(); // Lista de inceptions
+		InceptionComplexType tdInception = new InceptionComplexType();
+		ServiceListComplexType vListaServ = new ServiceListComplexType(); // Nueva Lista de servicios
+		DeviceListComplexType vListaDev = new DeviceListComplexType();// Nueva Lista de servicios
 		
 		// Variable para guardar y detectar el cambio de contrato
 		String aContratcID="";
@@ -66,51 +78,35 @@ public class Principal {
 			BufferedReader reader =	new BufferedReader(new	FileReader(Fichero));
 			while((linea = reader.readLine())!=null) {
 				Campos = linea.split(";"); // Deconstruyo el registro en campos
-				
 				// Compruebo si es la primera linea  o es cambio de contrato
-				if (Utiles.PrimeraLinea(NumLinea)||Utiles.CambioContrato(aContratcID, Campos[f_eventContractID]))	{
-					if (Utiles.PrimeraLinea(NumLinea)){
-						NuevoFichero=1; // Es Primera Linea. Se genera nuevo Inception de tipo tdInception
-
-					//Nuevo documento
-						Inceptions S15Incept = new Inceptions();
-						S15Incept.setHeader(null);
-						InceptionsComplexType lstInceptions = new InceptionsComplexType(); // Lista de inceptions
-						S15Incept.setData(lstInceptions); // Asociamos la lista de inceptions al documento
-						S15Incept.setFooter(null);
-						
-					// Nuevo inception
-						InceptionComplexType tdInception = new InceptionComplexType();
-						lstInceptions.getInception().add(tdInception); // se añade el nuevo inception
-							ServiceListComplexType vListaServ = new ServiceListComplexType(); // Nueva Lista de servicios
-								tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
-							DeviceListComplexType vListaDev = new DeviceListComplexType();// Nueva Lista de servicios
-								tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
+				if (Utiles.PrimeraLinea(NumLinea)){
+					NuevoFichero=1; // Es Primera Linea. Se genera un nuevo fichero
+					} 
 				
-								
-								ServiceComplexType	Servicio = new ServiceComplexType();
-				//				Utiles.addServiceAtrib(Servicio, Campos[0]);
-								vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
-
-		
-		
-								
-						// Construimos objeto Inceptions (Documento)
-//						InceptionComplexType unInception= new NuevoInception(Inception, Campos[f_eventType], Campos[f_eventDate], Campos[f_eventContractID], Campos[f_companyCode]);
-								
-								
-					} else {
-						// No es la primera linea pero es un contrato nuevo
-						
-					}
+				if (NuevoFichero==1){ // Si se decide generar un nuevo fichero
+					NumFichero ++; // Incrementamos para saber el numero de ficheros generados
+				
+				//Nuevo documento
+					//lstInceptions=null;
+					S15Incept.setHeader(null);
+					S15Incept.setData(lstInceptions); // Asociamos la lista de inceptions al documento
+					S15Incept.setFooter(null);
+				// Nuevo inception
+					//tdInception=null;
+					lstInceptions.getInception().add(tdInception); // se añade el nuevo inception
+							tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
+							tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					
-				} else {
-			// No es la primera linea ni contrato nuevo
-
+					
+				NuevoFichero=0; 
 				}
-				// Informamos los datos de servicios 
-
 				
+				// Informamos los datos de servicios 
+				
+				ServiceComplexType	Servicio = new ServiceComplexType(); // Creamos un servicio
+				Utiles.addServiceAtrib(Servicio, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
+				vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
+
 				
 				NumLinea ++;
 
@@ -118,7 +114,7 @@ public class Principal {
 			
 			reader.close();
 			
-			
+			Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

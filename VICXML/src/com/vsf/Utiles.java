@@ -110,12 +110,18 @@ public class Utiles {
 
 	
 
-	//public static void addServiceAtrib(ServiceComplexType Servicio, String Linea){
-	//	Servicio.setServiceCode(Linea[f_CD_POB]);
+	public static void addServiceAtrib(ServiceComplexType Servicio, String s_CD_POB, String s_ID_Unico, String s_StartDate, String s_EndDate) throws DatatypeConfigurationException{
+		
+		Servicio.setServiceCode(s_CD_POB);
+		Servicio.setServiceID(s_ID_Unico);
+		Servicio.setServiceStartDate(FechaXML(s_StartDate));
+		Servicio.setServiceEndDate(FechaXML(s_EndDate));
 
 
-	//}
-	
+	}
+
+
+
 	
 	
 	
