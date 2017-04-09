@@ -110,6 +110,11 @@ public class Utiles {
 
 	
 
+	//public static void addServiceAtrib(ServiceComplexType Servicio, String Linea){
+	//	Servicio.setServiceCode(Linea[f_CD_POB]);
+
+
+	//}
 	
 	
 	

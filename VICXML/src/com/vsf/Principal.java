@@ -41,13 +41,17 @@ public class Principal {
 	static final int f_StartDate			=13; // Aplica tanto a Dispositivo como a Servicio
 	static final int f_EndDate				=14; // Aplica tanto a Dispositivo como a Servicio
 	
+	
+	
 	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	
+//	static Inceptions S15Incept = new Inceptions();
+	
+	
 	public static void main(String[] args) throws IOException, DatatypeConfigurationException, JAXBException  {
 		// TODO Auto-generated method stub
-		System.out.println("Prueba");
 		String Fichero=args[0];
 		String linea;
 		String[]Campos;
@@ -63,25 +67,36 @@ public class Principal {
 			while((linea = reader.readLine())!=null) {
 				Campos = linea.split(";"); // Deconstruyo el registro en campos
 				
-				
-				
 				// Compruebo si es la primera linea  o es cambio de contrato
 				if (Utiles.PrimeraLinea(NumLinea)||Utiles.CambioContrato(aContratcID, Campos[f_eventContractID]))	{
 					if (Utiles.PrimeraLinea(NumLinea)){
 						NuevoFichero=1; // Es Primera Linea. Se genera nuevo Inception de tipo tdInception
-						// Creamos nuevo objeto Inceptions
+
+					//Nuevo documento
+						Inceptions S15Incept = new Inceptions();
+						S15Incept.setHeader(null);
+						InceptionsComplexType lstInceptions = new InceptionsComplexType(); // Lista de inceptions
+						S15Incept.setData(lstInceptions); // Asociamos la lista de inceptions al documento
+						S15Incept.setFooter(null);
 						
-					//	NuevoS15Inception S15Inception = new NuevoS15Inception();
-						
-												Inceptions S15Inceptions = new Inceptions(); // Clase principal (raiz) que sera exportada a XML
-						InceptionsComplexType ListaInceptions=null;  // Subclase (Lista) de inception ya que puede haber varios
-							InceptionComplexType Inception = null; // Tipo Inception individual
-								ServiceListComplexType ListaServicios = null; // Lista de Servicios
-								DeviceListComplexType ListaDispositivos = null;// Lista de Dispositivos	
+					// Nuevo inception
+						InceptionComplexType tdInception = new InceptionComplexType();
+						lstInceptions.getInception().add(tdInception); // se añade el nuevo inception
+							ServiceListComplexType vListaServ = new ServiceListComplexType(); // Nueva Lista de servicios
+								tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
+							DeviceListComplexType vListaDev = new DeviceListComplexType();// Nueva Lista de servicios
+								tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
+				
+								
+								ServiceComplexType	Servicio = new ServiceComplexType();
+				//				Utiles.addServiceAtrib(Servicio, Campos[0]);
+								vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
+
+		
+		
 								
 						// Construimos objeto Inceptions (Documento)
-						InceptionComplexType unInception= new NuevoInception(Inception, Campos[f_eventType], Campos[f_eventDate], Campos[f_eventContractID], Campos[f_companyCode]);
-		System.out.println("Prueba");
+//						InceptionComplexType unInception= new NuevoInception(Inception, Campos[f_eventType], Campos[f_eventDate], Campos[f_eventContractID], Campos[f_companyCode]);
 								
 								
 					} else {
@@ -91,12 +106,11 @@ public class Principal {
 					
 				} else {
 			// No es la primera linea ni contrato nuevo
-					
-			
-					
-					
-					
+
 				}
+				// Informamos los datos de servicios 
+
+				
 				
 				NumLinea ++;
 
@@ -114,5 +128,7 @@ public class Principal {
 	System.out.println("Finalizada extraccion !!!!");	
 	
 	}
+	
+	
 
 }
