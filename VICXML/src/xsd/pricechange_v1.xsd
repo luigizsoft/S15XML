@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=============================================================================================
+Interface Name: PriceChange
+
+Version control
+===========
+v0.1		matthew.a.croxon@accenture.com			11-May-2016		Initial Version based on D04d v0.8 
+v1.0		m.ashok.ujjanakoppa@accenture.com	18-May-2016		XSD file generated for Price Change Event present in D04d v.12 Design Deliverable
+			m.ashok.ujjanakoppa@accenture.com  	20-May-2016		No new impacts in IFRS15SimpleTypes in the latest version of D04d v.014
+v1.1		m.ashok.ujjanakoppa@accenture.com	24-May-2016		XSD is updated with respect to D04d v15
+																								1)Element serviceEndDateEstimated is added in SERVICE array
+																								2) FirstPlanBillingDate element is made conditional in device array
+v1.2		m.ashok.ujjanakoppa@accenture.com	25-May-2016		Updated CommonTypes XSD with respect to v.16 of D04d,below are the changes
+																								    1)Added "Effective Price Change Date" at POB level
+																									2)Changed from Mandatory  to Conditional - One Off Payment array and Device Billing Profile for Device
+																									3)Changed from Mandatory to Conditional  - "First Plan Billing Date" for Service
+			m.ashok.ujjanakoppa@accenture.com  	27-May-2016		No new impacts in Price Change XSD in the latest version of D04d v.017
+v1.3		miguel.b.gutierrez@accenture.com			01-Jun-2016		Updated XSD with respect to v18 of D04d:
+																								1)Nillable = "false" removed from "Catch Up Indicatior", as it can be blank.
+			miguel.b.gutierrez@accenture.com  	    10-Jun-2016	    No new impacts in Price Change XSD in the latest version of D04d v.019
+			miguel.b.gutierrez@accenture.com  	     01-Jul-2016	    No new impacts in Price Change XSD in the latest version of D04d v1.0
+
+=============================================================================================
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:com="http://ifrs.vodafone.com/commonTypes_v1" xmlns:tns="http://ifrs15.vodafone.com/events/pricechange_v1" targetNamespace="http://ifrs15.vodafone.com/events/pricechange_v1" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:import namespace="http://ifrs.vodafone.com/commonTypes_v1" schemaLocation="ifrs15_commontypes_v1.xsd"/>
+	<xs:element name="PriceChanges">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="com:fileHeaderComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Data" type="tns:pricechangesComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Footer" type="com:fileFooterComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="pricechangesComplexType">
+		<xs:sequence>
+			<xs:element name="PriceChange" type="tns:pricechangeComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="pricechangeComplexType">
+		<xs:sequence>
+			<xs:element name="eventType" type="com:eventTypeType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eventDate" type="com:eventDateType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eventContractID" type="com:eventContractIDType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyCode" type="com:companyCodeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="catchUpIndicator" type="com:catchUpIndicatorType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DeviceList" type="tns:deviceListComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ServiceList" type="tns:serviceListComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceListComplexType">
+		<xs:sequence>
+			<xs:element name="Device" type="tns:deviceComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceComplexType">
+		<xs:sequence>
+			<xs:element name="deviceID" type="com:deviceIDType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DeviceBillingProfile" type="tns:deviceBillingProfileComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OneOffPayments" type="tns:oneOffPaymentListComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="deviceQuantity" type="com:deviceQuantityType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyCode" type="com:companyCodeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstPlanBillingDate" type="com:firstPlanBillingDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="effectivePriceChangeDate" type="com:effectivePriceChangeDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceBillingProfileComplexType">
+		<xs:sequence>
+			<xs:element name="billingAmount" type="com:billingAmountType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="serviceListComplexType">
+		<xs:sequence>
+			<xs:element name="Service" type="tns:serviceComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="serviceComplexType">
+		<xs:sequence>
+			<xs:element name="serviceID" type="com:serviceIDType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="serviceTimeUnit" type="com:serviceTimeUnitType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="serviceStartDate" type="com:serviceDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="serviceEndDate" type="com:serviceDateType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ServiceBillingProfile" type="tns:serviceBillingProfileComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="serviceQuantity" type="com:serviceQuantityType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyCode" type="com:companyCodeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstPlanBillingDate" type="com:firstPlanBillingDateType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="effectivePriceChangeDate" type="com:effectivePriceChangeDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="serviceEndDateEstimated" type="com:serviceEndDateEstimatedType" nillable="false" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="serviceBillingProfileComplexType">
+		<xs:sequence>
+			<xs:element name="billingAmount" type="com:billingAmountType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="oneOffPaymentListComplexType">
+		<xs:sequence>
+			<xs:element name="OneOffPayment" type="tns:oneOffPaymentComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="oneOffPaymentComplexType">
+		<xs:sequence>
+			<xs:element name="oneOffPaymentType" type="com:oneOffPaymentTypeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="oneOffPaymentAmount" type="com:oneOffPaymentAmountType" nillable="false" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

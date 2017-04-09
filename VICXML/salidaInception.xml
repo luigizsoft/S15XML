@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Inceptions xmlns="http://ifrs.vodafone.com/commonTypes_v1" xmlns:ns2="http://ifrs15.vodafone.com/events/inception_v1">
+    <ns2:Data>
+        <ns2:Inception>
+            <ns2:eventType>01</ns2:eventType>
+            <ns2:eventDate>2017-01-20T00:03:00.000+01:00</ns2:eventDate>
+            <ns2:eventContractID>1030394180W11552320</ns2:eventContractID>
+            <ns2:companyCode>ES00</ns2:companyCode>
+            <ns2:DeviceList/>
+            <ns2:ServiceList>
+                <ns2:Service>
+                    <ns2:serviceCode>POBV_POBGENERICA_ATARS</ns2:serviceCode>
+                    <ns2:serviceID>ID-136 </ns2:serviceID>
+                    <ns2:serviceTimeUnit>1</ns2:serviceTimeUnit>
+                    <ns2:serviceStartDate>2017-01-16+01:00</ns2:serviceStartDate>
+                    <ns2:serviceEndDate>2017-01-20+01:00</ns2:serviceEndDate>
+                </ns2:Service>
+            </ns2:ServiceList>
+        </ns2:Inception>
+    </ns2:Data>
+</ns2:Inceptions>

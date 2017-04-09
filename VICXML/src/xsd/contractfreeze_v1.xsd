@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=============================================================================================
+Interface Name: Contract Freeze
+
+Version control
+===========
+
+v1.0		miguel.b.gutierrez@accenture.com	10-Jun-2016		XSD file generated for Contract Freeze Event present in D04d v.19 Design Deliverable
+v1.1		miguel.b.gutierrez@accenture.com	 01-Jul-2016		Updated XSD with respect to v1.0 of D04d:
+																						1)contractFreezeType changed from "Mandatory" to "Conditional"
+																						2)Device POB included in the Contract Freeze XSD
+																						3)"firstPlanBillingDate" for Service POB Array changed from "Conditional" to "Mandatory"
+
+=============================================================================================
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:com="http://ifrs.vodafone.com/commonTypes_v1" xmlns:tns="http://ifrs15.vodafone.com/events/contractfreeze_v1" targetNamespace="http://ifrs15.vodafone.com/events/contractfreeze_v1" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:import namespace="http://ifrs.vodafone.com/commonTypes_v1" schemaLocation="ifrs15_commontypes_v1.xsd"/>
+	<xs:element name="ContractFreezes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="com:fileHeaderComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Data" type="tns:contractfreezesComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Footer" type="com:fileFooterComplexType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="contractfreezesComplexType">
+		<xs:sequence>
+			<xs:element name="ContractFreeze" type="tns:contractFreezeComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="contractFreezeComplexType">
+		<xs:sequence>
+			<xs:element name="eventType" type="com:eventTypeType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eventDate" type="com:eventDateType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eventContractID" type="com:eventContractIDType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="contractFreezeType" type="com:contractFreezeTypeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="companyCode" type="com:companyCodeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="revisedServiceEndDate" type="com:revisedServiceEndDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ServiceList" type="tns:serviceListComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DeviceList" type="tns:deviceListComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="serviceListComplexType">
+		<xs:sequence>
+			<xs:element name="Service" type="tns:serviceComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="serviceBillingProfileComplexType">
+		<xs:sequence>
+			<xs:element name="billingAmount" type="com:billingAmountType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="serviceComplexType">
+		<xs:sequence>
+			<xs:element name="serviceID" type="com:serviceIDType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="serviceTimeUnit" type="com:serviceTimeUnitType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="serviceStartDate" type="com:serviceDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="revisedServiceEndDate" type="com:revisedServiceEndDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ServiceBillingProfile" type="tns:serviceBillingProfileComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="serviceQuantity" type="com:serviceQuantityType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyCode" type="com:companyCodeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstPlanBillingDate" type="com:firstPlanBillingDateType" nillable="false" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceListComplexType">
+		<xs:sequence>
+			<xs:element name="Device" type="tns:deviceComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceComplexType">
+		<xs:sequence>
+			<xs:element name="deviceID" type="com:deviceIDType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DeviceBillingProfile" type="tns:deviceBillingProfileComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OneOffPayments" type="tns:oneOffPaymentListComplexType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="deviceQuantity" type="com:deviceQuantityType" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="companyCode" type="com:companyCodeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="firstPlanBillingDate" type="com:firstPlanBillingDateType" nillable="false" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceBillingProfileComplexType">
+		<xs:sequence>
+			<xs:element name="billingAmount" type="com:billingAmountType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="oneOffPaymentListComplexType">
+		<xs:sequence>
+			<xs:element name="OneOffPayment" type="tns:oneOffPaymentComplexType" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="oneOffPaymentComplexType">
+		<xs:sequence>
+			<xs:element name="oneOffPaymentType" type="com:oneOffPaymentTypeType" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="oneOffPaymentAmount" type="com:oneOffPaymentAmountType" nillable="false" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
