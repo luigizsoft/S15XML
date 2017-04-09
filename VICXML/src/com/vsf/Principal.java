@@ -112,7 +112,6 @@ public class Principal {
 		}
 		
 	System.out.println("Finalizada extraccion !!!!");	
-	System.out.println(" y bien finalizada");
 	}
 
 }
