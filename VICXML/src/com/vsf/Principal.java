@@ -45,6 +45,10 @@ public class Principal {
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	static int NuevoContrato=0;
+	static int NumContratos=1;
+	static int NumContratosXfichero=32;
+	
+	static int GeneradoFichero=0;
 	
 	public static void main(String[] args) throws IOException, DatatypeConfigurationException, JAXBException, InstantiationException, IllegalAccessException  {
 		// TODO Auto-generated method stub
@@ -69,13 +73,13 @@ public class Principal {
 			BufferedReader reader =	new BufferedReader(new	FileReader(Fichero));
 			while((linea = reader.readLine())!=null) {
 				Campos = linea.split(";"); // Deconstruyo el registro en campos
-				// Compruebo si es la primera linea 
-				//if (Utiles.PrimeraLinea(NumLinea)){
-				//	NuevoFichero=1; // Es Primera Linea. Se genera un nuevo fichero
-				//	} 
 				
 				if (NuevoFichero==1){ // Si se decide generar un nuevo fichero
-					NumFichero ++; // Incrementamos para saber el numero de ficheros generados
+				//	NumFichero ++; // Incrementamos para saber el numero de ficheros generados
+					if (GeneradoFichero==1) {
+						S15Incept = new Inceptions();
+						lstInceptions = new InceptionsComplexType();
+					}
 					tdInception=new InceptionComplexType();
 					lstInceptions.getInception().add(tdInception);
 					S15Incept.setData(lstInceptions);
@@ -84,12 +88,17 @@ public class Principal {
 					tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					tdInception.setEventContractID(Campos[f_eventContractID]);
 					
-				NuevoFichero=0; 
+					NuevoFichero=0; 
 				} else{
 				
 				// Deteccion de cambios de contrato, cuando no sea nuevo fichero que ya va implicito
 				if (!aContratcID.equals(Campos[f_eventContractID].trim())) {
 					NuevoContrato=1;
+					NumContratos ++;
+					if (GeneradoFichero==1) {
+						S15Incept = new Inceptions();
+						lstInceptions = new InceptionsComplexType();
+					}
 					tdInception=new InceptionComplexType();
 					lstInceptions.getInception().add(tdInception);
 					S15Incept.setData(lstInceptions);
@@ -97,13 +106,11 @@ public class Principal {
 					tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
 					tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					tdInception.setEventContractID(Campos[f_eventContractID]);
-
-					
 				} else {NuevoContrato=0;}
 				}
 				aContratcID=Campos[f_eventContractID].trim();
 		
-				if (0==0){
+if (0==0){ //Para en debug no ejecutar este cacho
 				// Identificamos si es Servicio o Dispositivo
 				if (Utiles.EsServicio(Campos[f_TipoElemento])){
 					// Informamos los datos de servicios 
@@ -118,15 +125,30 @@ public class Principal {
 				} else {
 						System.out.println("Can't find element type (Service/Device)");
 				}
-				}	
+}	
 				
+
+
+			// Comprueba cuantos contratos se van a mandar en cada fichero. Controla que sea cuando finaliza el evento.
+			if (NumContratosXfichero<NumContratos && NuevoContrato==1)
+				{
+					Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
+					NumFichero ++; // Incrementamos para saber el numero de ficheros generados
+					NuevoFichero=1;
+					NumContratos=0;
+					GeneradoFichero=1;
+				} else {GeneradoFichero=0;}
 				NumLinea ++;
 
 			} // Fin lectura lineas fichero
 			
 			reader.close();
+			NumFichero ++;
 			
-			Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
+			// Cuando acaba con el fichero imprime el resto.
+			if (NumContratosXfichero>=NumContratos ){
+				Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
+			}
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
