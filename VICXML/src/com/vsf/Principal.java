@@ -4,17 +4,20 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Date;
 //import java.util.Vector;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 
+import com.vsf.S15.Inception.DeviceBillingProfileComplexType;
 import com.vsf.S15.Inception.DeviceComplexType;
 import com.vsf.S15.Inception.DeviceListComplexType;
 import com.vsf.S15.Inception.InceptionComplexType;
 import com.vsf.S15.Inception.Inceptions;
 import com.vsf.S15.Inception.InceptionsComplexType;
+import com.vsf.S15.Inception.ServiceBillingProfileComplexType;
 import com.vsf.S15.Inception.ServiceComplexType;
 import com.vsf.S15.Inception.ServiceListComplexType;
 import com.vsf.*;
@@ -40,7 +43,11 @@ public class Principal {
 	static final int f_ID_Unico				=12; // El que corresponda al dispositivo o al servicio
 	static final int f_StartDate			=13; // Fecha inicio Servicio / Transfer Date Dispositivo
 	static final int f_EndDate				=14; // Fecha fin Servicio / null Dispositivo
-		
+	static final int f_BillProf				=15; // Billing Profile
+	
+	static String ID_Servicio="";
+	static String ID_Device="";
+	
 	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
 	static int NumFichero =0;
 	static int NuevoFichero=0;
@@ -62,6 +69,10 @@ public class Principal {
 		InceptionComplexType tdInception = new InceptionComplexType();
 		ServiceListComplexType vListaServ = new ServiceListComplexType(); // Nueva Lista de servicios
 		DeviceListComplexType vListaDev = new DeviceListComplexType();// Nueva Lista de servicios
+		ServiceComplexType Servicio = new ServiceComplexType();
+		ServiceBillingProfileComplexType ServBillProf= new ServiceBillingProfileComplexType();
+		DeviceComplexType Device = new DeviceComplexType();
+		DeviceBillingProfileComplexType DevBillProf= new DeviceBillingProfileComplexType();
 		
 		// Variable para guardar y detectar el cambio de contrato
 		String aContratcID="";
@@ -74,6 +85,9 @@ public class Principal {
 			while((linea = reader.readLine())!=null) {
 				Campos = linea.split(";"); // Deconstruyo el registro en campos
 				
+// Si cambia la POB o el contrato, generamos nuevo grupo (Esto se hace para Billing profile)			
+if (!ID_Servicio.equals(Campos[f_ID_Unico])||!aContratcID.equals(Campos[f_eventContractID].trim())){
+
 				if (NuevoFichero==1){ // Si se decide generar un nuevo fichero
 				//	NumFichero ++; // Incrementamos para saber el numero de ficheros generados
 					if (GeneradoFichero==1) {
@@ -84,6 +98,7 @@ public class Principal {
 					lstInceptions.getInception().add(tdInception);
 					S15Incept.setData(lstInceptions);
 					vListaServ = new ServiceListComplexType();
+					vListaDev = new DeviceListComplexType();
 					tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
 					tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					tdInception.setEventContractID(Campos[f_eventContractID]);
@@ -103,32 +118,75 @@ public class Principal {
 					lstInceptions.getInception().add(tdInception);
 					S15Incept.setData(lstInceptions);
 					vListaServ = new ServiceListComplexType();
+					vListaDev = new DeviceListComplexType();
 					tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
 					tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					tdInception.setEventContractID(Campos[f_eventContractID]);
 				} else {NuevoContrato=0;}
 				}
+}				
 				aContratcID=Campos[f_eventContractID].trim();
 		
 if (0==0){ //Para en debug no ejecutar este cacho
+	
+	
+///////////////////
+/// PARTE DE POBS 
+///////////////////
+			////////////////////
+			/// POBs Servicios
+			////////////////////
 				// Identificamos si es Servicio o Dispositivo
 				if (Utiles.EsServicio(Campos[f_TipoElemento])){
 					// Informamos los datos de servicios 
-					ServiceComplexType	Servicio = new ServiceComplexType(); // Creamos un servicio
-					Utiles.addServiceAtrib(Servicio, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
-					vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
+						// Si cambia de servicio se crea uno nuevo
+					if (!ID_Servicio.equals(Campos[f_ID_Unico])){
+						Servicio= new ServiceComplexType();
+						ServBillProf = new ServiceBillingProfileComplexType();
+						Utiles.addServiceAtrib(Servicio, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
+						vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
+					}
+
+					// Billing Profile
+					BigDecimal Importe = new BigDecimal(Campos[f_BillProf]);
+					ServBillProf.getBillingAmount().add(Importe);
+					Servicio.setServiceBillingProfile(ServBillProf);
+
+					ID_Servicio=Campos[f_ID_Unico];
+					
+			////////////////////
+			/// POBs Dispositivos
+			////////////////////
+						
 				} else if (Utiles.EsDispositivo(Campos[f_TipoElemento])){
+									// Informamos los datos de dispositivos 
+									// Si cambia de dispositivo se crea uno nuevo
+								if (!ID_Device.equals(Campos[f_ID_Unico])){
+									Device= new DeviceComplexType();
+									DevBillProf = new DeviceBillingProfileComplexType();
+									Utiles.addDeviceAtrib(Device, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
+									vListaDev.getDevice().add(Device);// Agregamos a la lista de servicios
+								}
+								// Billing Profile
+								BigDecimal Importe = new BigDecimal(Campos[f_BillProf]);
+								DevBillProf.getBillingAmount().add(Importe);
+								Device.setDeviceBillingProfile(DevBillProf);
+				
+								ID_Device=Campos[f_ID_Unico];
 						// Informamos los datos de dispositivos 
-						DeviceComplexType	Device = new DeviceComplexType(); // Creamos un servicio
-						Utiles.addDeviceAtrib(Device, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
-						vListaDev.getDevice().add(Device);// Agregamos a la lista de servicios
+						//DeviceComplexType	Device = new DeviceComplexType(); // Creamos un servicio
 				} else {
 						System.out.println("Can't find element type (Service/Device)");
 				}
-}	
+////////////////////
+/// FIN POBS ///////
+////////////////////
 				
+}	
 
-
+//////////////////////////////////////
+/// CONTROL DE FICHEROS A GENERAR ////
+//////////////////////////////////////
 			// Comprueba cuantos contratos se van a mandar en cada fichero. Controla que sea cuando finaliza el evento.
 			if (NumContratosXfichero<NumContratos && NuevoContrato==1)
 				{
@@ -140,11 +198,12 @@ if (0==0){ //Para en debug no ejecutar este cacho
 				} else {GeneradoFichero=0;}
 				NumLinea ++;
 
+///////////////////////////
+/// FIN LECTURA FICHERO //
+///////////////////////////
 			} // Fin lectura lineas fichero
-			
 			reader.close();
 			NumFichero ++;
-			
 			// Cuando acaba con el fichero imprime el resto.
 			if (NumContratosXfichero>=NumContratos ){
 				Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
