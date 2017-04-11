@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -29,27 +29,27 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="eventType" type="{http://ifrs.vodafone.com/commonTypes_v1}eventTypeType"/&gt;
- *         &lt;element name="eventDate" type="{http://ifrs.vodafone.com/commonTypes_v1}eventDateType"/&gt;
- *         &lt;element name="eventContractID" type="{http://ifrs.vodafone.com/commonTypes_v1}eventContractIDType"/&gt;
- *         &lt;element name="iFRS15SynonymID" type="{http://ifrs.vodafone.com/commonTypes_v1}iFRS15SynonymIDType" minOccurs="0"/&gt;
- *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v1}companyCodeType" minOccurs="0"/&gt;
- *         &lt;element name="contractStartDate" type="{http://ifrs.vodafone.com/commonTypes_v1}contractDateType" minOccurs="0"/&gt;
- *         &lt;element name="contractEndDate" type="{http://ifrs.vodafone.com/commonTypes_v1}contractDateType" minOccurs="0"/&gt;
- *         &lt;element name="contractTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v1}contractTimeUnitType" minOccurs="0"/&gt;
- *         &lt;element name="firstPlanBillingDate" type="{http://ifrs.vodafone.com/commonTypes_v1}firstPlanBillingDateType" minOccurs="0"/&gt;
- *         &lt;element name="catchUpIndicator" type="{http://ifrs.vodafone.com/commonTypes_v1}catchUpIndicatorType" minOccurs="0"/&gt;
- *         &lt;element name="billingType" type="{http://ifrs.vodafone.com/commonTypes_v1}billingTypeType" minOccurs="0"/&gt;
- *         &lt;element name="DeviceList" type="{http://ifrs15.vodafone.com/events/inception_v1}deviceListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="ServiceList" type="{http://ifrs15.vodafone.com/events/inception_v1}serviceListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="MaterialRightsList" type="{http://ifrs15.vodafone.com/events/inception_v1}materialRightsListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v1}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
- *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v1}mIAttributesComplexType" minOccurs="0"/&gt;
- *         &lt;element name="averageDiscountFactor" type="{http://ifrs.vodafone.com/commonTypes_v1}averageDiscountFactorType" minOccurs="0"/&gt;
- *         &lt;element name="currency" type="{http://ifrs.vodafone.com/commonTypes_v1}currencyType"/&gt;
- *         &lt;element name="RebateList" type="{http://ifrs15.vodafone.com/events/inception_v1}rebatesListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="FundList" type="{http://ifrs15.vodafone.com/events/inception_v1}fundsListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="LeasingList" type="{http://ifrs15.vodafone.com/events/inception_v1}leasingListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="eventType" type="{http://ifrs.vodafone.com/commonTypes_v3}eventTypeType"/&gt;
+ *         &lt;element name="eventDate" type="{http://ifrs.vodafone.com/commonTypes_v3}eventDateType"/&gt;
+ *         &lt;element name="eventContractID" type="{http://ifrs.vodafone.com/commonTypes_v3}eventContractIDType"/&gt;
+ *         &lt;element name="iFRS15SynonymID" type="{http://ifrs.vodafone.com/commonTypes_v3}iFRS15SynonymIDType" minOccurs="0"/&gt;
+ *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v3}companyCodeType" minOccurs="0"/&gt;
+ *         &lt;element name="contractStartDate" type="{http://ifrs.vodafone.com/commonTypes_v3}contractDateType" minOccurs="0"/&gt;
+ *         &lt;element name="contractEndDate" type="{http://ifrs.vodafone.com/commonTypes_v3}contractDateType" minOccurs="0"/&gt;
+ *         &lt;element name="contractTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v3}contractTimeUnitType" minOccurs="0"/&gt;
+ *         &lt;element name="firstPlanBillingDate" type="{http://ifrs.vodafone.com/commonTypes_v3}firstPlanBillingDateType" minOccurs="0"/&gt;
+ *         &lt;element name="catchUpIndicator" type="{http://ifrs.vodafone.com/commonTypes_v3}catchUpIndicatorType" minOccurs="0"/&gt;
+ *         &lt;element name="billingType" type="{http://ifrs.vodafone.com/commonTypes_v3}billingTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="DeviceList" type="{http://ifrs15.vodafone.com/events/inception_v3}deviceListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="ServiceList" type="{http://ifrs15.vodafone.com/events/inception_v3}serviceListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="MaterialRightsList" type="{http://ifrs15.vodafone.com/events/inception_v3}materialRightsListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v3}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
+ *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v3}mIAttributesComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="averageDiscountFactor" type="{http://ifrs.vodafone.com/commonTypes_v3}averageDiscountFactorType" minOccurs="0"/&gt;
+ *         &lt;element name="currency" type="{http://ifrs.vodafone.com/commonTypes_v3}currencyType"/&gt;
+ *         &lt;element name="RebateList" type="{http://ifrs15.vodafone.com/events/inception_v3}rebatesListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="FundList" type="{http://ifrs15.vodafone.com/events/inception_v3}fundsListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="CostList" type="{http://ifrs15.vodafone.com/events/inception_v3}CostListComplexType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -80,7 +80,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "currency",
     "rebateList",
     "fundList",
-    "leasingList"
+    "costList"
 })
 public class InceptionComplexType {
 
@@ -135,8 +135,8 @@ public class InceptionComplexType {
     protected RebatesListComplexType rebateList;
     @XmlElement(name = "FundList")
     protected FundsListComplexType fundList;
-    @XmlElement(name = "LeasingList")
-    protected LeasingListComplexType leasingList;
+    @XmlElement(name = "CostList")
+    protected CostListComplexType costList;
 
     /**
      * Obtiene el valor de la propiedad eventType.
@@ -619,27 +619,27 @@ public class InceptionComplexType {
     }
 
     /**
-     * Obtiene el valor de la propiedad leasingList.
+     * Obtiene el valor de la propiedad costList.
      * 
      * @return
      *     possible object is
-     *     {@link LeasingListComplexType }
+     *     {@link CostListComplexType }
      *     
      */
-    public LeasingListComplexType getLeasingList() {
-        return leasingList;
+    public CostListComplexType getCostList() {
+        return costList;
     }
 
     /**
-     * Define el valor de la propiedad leasingList.
+     * Define el valor de la propiedad costList.
      * 
      * @param value
      *     allowed object is
-     *     {@link LeasingListComplexType }
+     *     {@link CostListComplexType }
      *     
      */
-    public void setLeasingList(LeasingListComplexType value) {
-        this.leasingList = value;
+    public void setCostList(CostListComplexType value) {
+        this.costList = value;
     }
 
 }

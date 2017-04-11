@@ -17,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para fundsListComplexType complex type.
+ * <p>Clase Java para ContractLevelListComplexType complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="fundsListComplexType"&gt;
+ * &lt;complexType name="ContractLevelListComplexType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Fund" type="{http://ifrs15.vodafone.com/events/inception_v3}fundComplexType" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="ContractLevel" type="{http://ifrs15.vodafone.com/events/inception_v3}ContractLevelComplexType" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,41 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "fundsListComplexType", propOrder = {
-    "fund"
+@XmlType(name = "ContractLevelListComplexType", propOrder = {
+    "contractLevel"
 })
-public class FundsListComplexType {
+public class ContractLevelListComplexType {
 
-    @XmlElement(name = "Fund", required = true)
-    protected List<FundComplexType> fund;
+    @XmlElement(name = "ContractLevel", required = true)
+    protected List<ContractLevelComplexType> contractLevel;
 
     /**
-     * Gets the value of the fund property.
+     * Gets the value of the contractLevel property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the fund property.
+     * This is why there is not a <CODE>set</CODE> method for the contractLevel property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getFund().add(newItem);
+     *    getContractLevel().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FundComplexType }
+     * {@link ContractLevelComplexType }
      * 
      * 
      */
-    public List<FundComplexType> getFund() {
-        if (fund == null) {
-            fund = new ArrayList<FundComplexType>();
+    public List<ContractLevelComplexType> getContractLevel() {
+        if (contractLevel == null) {
+            contractLevel = new ArrayList<ContractLevelComplexType>();
         }
-        return this.fund;
+        return this.contractLevel;
     }
 
 }

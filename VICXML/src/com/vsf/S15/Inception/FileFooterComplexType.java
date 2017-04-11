@@ -2,12 +2,13 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
 package com.vsf.S15.Inception;
 
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="numberRecords" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="numberRecords" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,23 +35,23 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "fileFooterComplexType", namespace = "http://ifrs.vodafone.com/commonTypes_v1", propOrder = {
+@XmlType(name = "fileFooterComplexType", namespace = "http://ifrs.vodafone.com/commonTypes_v3", propOrder = {
     "numberRecords"
 })
 public class FileFooterComplexType {
 
     @XmlElement(required = true)
-    protected String numberRecords;
+    protected BigInteger numberRecords;
 
     /**
      * Obtiene el valor de la propiedad numberRecords.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public String getNumberRecords() {
+    public BigInteger getNumberRecords() {
         return numberRecords;
     }
 
@@ -59,10 +60,10 @@ public class FileFooterComplexType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public void setNumberRecords(String value) {
+    public void setNumberRecords(BigInteger value) {
         this.numberRecords = value;
     }
 

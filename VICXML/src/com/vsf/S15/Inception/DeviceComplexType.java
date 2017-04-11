@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -30,25 +30,27 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="deviceCode" type="{http://ifrs.vodafone.com/commonTypes_v1}deviceCodeType"/&gt;
- *         &lt;element name="deviceID" type="{http://ifrs.vodafone.com/commonTypes_v1}deviceIDType"/&gt;
- *         &lt;element name="deviceTransferDate" type="{http://ifrs.vodafone.com/commonTypes_v1}deviceTransferDateType" minOccurs="0"/&gt;
- *         &lt;element name="DeviceBillingProfile" type="{http://ifrs15.vodafone.com/events/inception_v1}deviceBillingProfileComplexType" minOccurs="0"/&gt;
- *         &lt;element name="OneOffPayments" type="{http://ifrs15.vodafone.com/events/inception_v1}oneOffPaymentListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="financingDiscountRate" type="{http://ifrs.vodafone.com/commonTypes_v1}financingDiscountRateType" minOccurs="0"/&gt;
- *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v1}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
- *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v1}mIAttributesComplexType" minOccurs="0"/&gt;
- *         &lt;element name="sSP" type="{http://ifrs.vodafone.com/commonTypes_v1}sSPType" minOccurs="0"/&gt;
- *         &lt;element name="discountIndicator" type="{http://ifrs.vodafone.com/commonTypes_v1}discountIndicatorType" minOccurs="0"/&gt;
- *         &lt;element name="deviceQuantity" type="{http://ifrs.vodafone.com/commonTypes_v1}deviceQuantityType"/&gt;
- *         &lt;element name="averageDiscountFactor" type="{http://ifrs.vodafone.com/commonTypes_v1}averageDiscountFactorType" minOccurs="0"/&gt;
- *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v1}companyCodeType" minOccurs="0"/&gt;
- *         &lt;element name="firstPlanBillingDate" type="{http://ifrs.vodafone.com/commonTypes_v1}firstPlanBillingDateType" minOccurs="0"/&gt;
- *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v1}profitCenterType"/&gt;
- *         &lt;element name="excludeFromAllocation" type="{http://ifrs.vodafone.com/commonTypes_v1}excludeFromAllocationType" minOccurs="0"/&gt;
- *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v1}referenceAccountType" minOccurs="0"/&gt;
- *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v1}pOBNameType" minOccurs="0"/&gt;
- *         &lt;element name="billingType" type="{http://ifrs.vodafone.com/commonTypes_v1}billingTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="deviceCode" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceCodeType"/&gt;
+ *         &lt;element name="deviceID" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceIDType"/&gt;
+ *         &lt;element name="deviceTransferDate" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceTransferDateType" minOccurs="0"/&gt;
+ *         &lt;element name="deviceStartDate" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceStartDateType" minOccurs="0"/&gt;
+ *         &lt;element name="deviceEndDate" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceEndDateType" minOccurs="0"/&gt;
+ *         &lt;element name="DeviceBillingProfile" type="{http://ifrs15.vodafone.com/events/inception_v3}deviceBillingProfileComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="OneOffPayments" type="{http://ifrs15.vodafone.com/events/inception_v3}oneOffPaymentListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="financingDiscountRate" type="{http://ifrs.vodafone.com/commonTypes_v3}financingDiscountRateType" minOccurs="0"/&gt;
+ *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v3}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
+ *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v3}mIAttributesComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="sSP" type="{http://ifrs.vodafone.com/commonTypes_v3}sSPType" minOccurs="0"/&gt;
+ *         &lt;element name="discountIndicator" type="{http://ifrs.vodafone.com/commonTypes_v3}discountIndicatorType" minOccurs="0"/&gt;
+ *         &lt;element name="deviceQuantity" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceQuantityType"/&gt;
+ *         &lt;element name="averageDiscountFactor" type="{http://ifrs.vodafone.com/commonTypes_v3}averageDiscountFactorType" minOccurs="0"/&gt;
+ *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v3}companyCodeType" minOccurs="0"/&gt;
+ *         &lt;element name="firstPlanBillingDate" type="{http://ifrs.vodafone.com/commonTypes_v3}firstPlanBillingDateType" minOccurs="0"/&gt;
+ *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v3}profitCenterType"/&gt;
+ *         &lt;element name="excludeFromAllocation" type="{http://ifrs.vodafone.com/commonTypes_v3}excludeFromAllocationType" minOccurs="0"/&gt;
+ *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v3}referenceAccountType" minOccurs="0"/&gt;
+ *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v3}pOBNameType" minOccurs="0"/&gt;
+ *         &lt;element name="billingType" type="{http://ifrs.vodafone.com/commonTypes_v3}billingTypeType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -62,6 +64,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "deviceCode",
     "deviceID",
     "deviceTransferDate",
+    "deviceStartDate",
+    "deviceEndDate",
     "deviceBillingProfile",
     "oneOffPayments",
     "financingDiscountRate",
@@ -91,6 +95,10 @@ public class DeviceComplexType {
     protected String deviceID;
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar deviceTransferDate;
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar deviceStartDate;
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar deviceEndDate;
     @XmlElement(name = "DeviceBillingProfile")
     protected DeviceBillingProfileComplexType deviceBillingProfile;
     @XmlElement(name = "OneOffPayments")
@@ -201,6 +209,54 @@ public class DeviceComplexType {
      */
     public void setDeviceTransferDate(XMLGregorianCalendar value) {
         this.deviceTransferDate = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad deviceStartDate.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDeviceStartDate() {
+        return deviceStartDate;
+    }
+
+    /**
+     * Define el valor de la propiedad deviceStartDate.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDeviceStartDate(XMLGregorianCalendar value) {
+        this.deviceStartDate = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad deviceEndDate.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDeviceEndDate() {
+        return deviceEndDate;
+    }
+
+    /**
+     * Define el valor de la propiedad deviceEndDate.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDeviceEndDate(XMLGregorianCalendar value) {
+        this.deviceEndDate = value;
     }
 
     /**

@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -26,26 +26,26 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="customerType" type="{http://ifrs.vodafone.com/commonTypes_v1}customerTypeType" minOccurs="0"/&gt;
- *         &lt;element name="callOriginDestination" type="{http://ifrs.vodafone.com/commonTypes_v1}callOriginDestinationType" minOccurs="0"/&gt;
- *         &lt;element name="channel" type="{http://ifrs.vodafone.com/commonTypes_v1}channelType" minOccurs="0"/&gt;
- *         &lt;element name="segment" type="{http://ifrs.vodafone.com/commonTypes_v1}segmentType" minOccurs="0"/&gt;
- *         &lt;element name="bearerTechnology" type="{http://ifrs.vodafone.com/commonTypes_v1}bearerTechnologyType" minOccurs="0"/&gt;
- *         &lt;element name="valueTier" type="{http://ifrs.vodafone.com/commonTypes_v1}valueTierType" minOccurs="0"/&gt;
- *         &lt;element name="proposition" type="{http://ifrs.vodafone.com/commonTypes_v1}propositionType" minOccurs="0"/&gt;
- *         &lt;element name="deviceTechnology" type="{http://ifrs.vodafone.com/commonTypes_v1}deviceTechnologyType" minOccurs="0"/&gt;
- *         &lt;element name="customer" type="{http://ifrs.vodafone.com/commonTypes_v1}customerType" minOccurs="0"/&gt;
- *         &lt;element name="spare1" type="{http://ifrs.vodafone.com/commonTypes_v1}spare1Type" minOccurs="0"/&gt;
- *         &lt;element name="spare2" type="{http://ifrs.vodafone.com/commonTypes_v1}spare2Type" minOccurs="0"/&gt;
- *         &lt;element name="brand" type="{http://ifrs.vodafone.com/commonTypes_v1}brandType" minOccurs="0"/&gt;
- *         &lt;element name="documentType" type="{http://ifrs.vodafone.com/commonTypes_v1}documentTypeType" minOccurs="0"/&gt;
- *         &lt;element name="tradingPartner" type="{http://ifrs.vodafone.com/commonTypes_v1}tradingPartnerType" minOccurs="0"/&gt;
- *         &lt;element name="batch" type="{http://ifrs.vodafone.com/commonTypes_v1}batchType" minOccurs="0"/&gt;
- *         &lt;element name="valuationType" type="{http://ifrs.vodafone.com/commonTypes_v1}valuationTypeType" minOccurs="0"/&gt;
- *         &lt;element name="functionalArea" type="{http://ifrs.vodafone.com/commonTypes_v1}functionalAreaType" minOccurs="0"/&gt;
- *         &lt;element name="orderNumber" type="{http://ifrs.vodafone.com/commonTypes_v1}orderNumberType" minOccurs="0"/&gt;
- *         &lt;element name="salesOffice" type="{http://ifrs.vodafone.com/commonTypes_v1}salesOfficeType" minOccurs="0"/&gt;
- *         &lt;element name="salesOrg" type="{http://ifrs.vodafone.com/commonTypes_v1}salesOrgType" minOccurs="0"/&gt;
+ *         &lt;element name="customerType" type="{http://ifrs.vodafone.com/commonTypes_v3}customerTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="callOriginDestination" type="{http://ifrs.vodafone.com/commonTypes_v3}callOriginDestinationType" minOccurs="0"/&gt;
+ *         &lt;element name="channel" type="{http://ifrs.vodafone.com/commonTypes_v3}channelType" minOccurs="0"/&gt;
+ *         &lt;element name="segment" type="{http://ifrs.vodafone.com/commonTypes_v3}segmentType" minOccurs="0"/&gt;
+ *         &lt;element name="bearerTechnology" type="{http://ifrs.vodafone.com/commonTypes_v3}bearerTechnologyType" minOccurs="0"/&gt;
+ *         &lt;element name="valueTier" type="{http://ifrs.vodafone.com/commonTypes_v3}valueTierType" minOccurs="0"/&gt;
+ *         &lt;element name="proposition" type="{http://ifrs.vodafone.com/commonTypes_v3}propositionType" minOccurs="0"/&gt;
+ *         &lt;element name="deviceTechnology" type="{http://ifrs.vodafone.com/commonTypes_v3}deviceTechnologyType" minOccurs="0"/&gt;
+ *         &lt;element name="customer" type="{http://ifrs.vodafone.com/commonTypes_v3}customerType" minOccurs="0"/&gt;
+ *         &lt;element name="spare1" type="{http://ifrs.vodafone.com/commonTypes_v3}spare1Type" minOccurs="0"/&gt;
+ *         &lt;element name="spare2" type="{http://ifrs.vodafone.com/commonTypes_v3}spare2Type" minOccurs="0"/&gt;
+ *         &lt;element name="brand" type="{http://ifrs.vodafone.com/commonTypes_v3}brandType" minOccurs="0"/&gt;
+ *         &lt;element name="documentType" type="{http://ifrs.vodafone.com/commonTypes_v3}documentTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="tradingPartner" type="{http://ifrs.vodafone.com/commonTypes_v3}tradingPartnerType" minOccurs="0"/&gt;
+ *         &lt;element name="batch" type="{http://ifrs.vodafone.com/commonTypes_v3}batchType" minOccurs="0"/&gt;
+ *         &lt;element name="valuationType" type="{http://ifrs.vodafone.com/commonTypes_v3}valuationTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="functionalArea" type="{http://ifrs.vodafone.com/commonTypes_v3}functionalAreaType" minOccurs="0"/&gt;
+ *         &lt;element name="orderNumber" type="{http://ifrs.vodafone.com/commonTypes_v3}orderNumberType" minOccurs="0"/&gt;
+ *         &lt;element name="salesOffice" type="{http://ifrs.vodafone.com/commonTypes_v3}salesOfficeType" minOccurs="0"/&gt;
+ *         &lt;element name="salesOrg" type="{http://ifrs.vodafone.com/commonTypes_v3}salesOrgType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;

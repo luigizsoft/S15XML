@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -30,32 +30,35 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="serviceCode" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceCodeType"/&gt;
- *         &lt;element name="serviceID" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceIDType"/&gt;
- *         &lt;element name="serviceTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceTimeUnitType" minOccurs="0"/&gt;
- *         &lt;element name="serviceStartDate" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceDateType" minOccurs="0"/&gt;
- *         &lt;element name="serviceEndDate" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceDateType" minOccurs="0"/&gt;
- *         &lt;element name="ServiceBillingProfile" type="{http://ifrs15.vodafone.com/events/inception_v1}serviceBillingProfileComplexType"/&gt;
- *         &lt;element name="sSP" type="{http://ifrs.vodafone.com/commonTypes_v1}sSPType"/&gt;
- *         &lt;element name="OneOffPayments" type="{http://ifrs15.vodafone.com/events/inception_v1}oneOffPaymentListComplexType" minOccurs="0"/&gt;
- *         &lt;element name="serviceEndDateEstimated" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceEndDateEstimatedType" minOccurs="0"/&gt;
- *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v1}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
- *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v1}mIAttributesComplexType" minOccurs="0"/&gt;
- *         &lt;element name="maxRolloverPeriod" type="{http://ifrs.vodafone.com/commonTypes_v1}maxRolloverPeriodType" minOccurs="0"/&gt;
- *         &lt;element name="discountIndicator" type="{http://ifrs.vodafone.com/commonTypes_v1}discountIndicatorType" minOccurs="0"/&gt;
- *         &lt;element name="inbundleAllowanceValue" type="{http://ifrs.vodafone.com/commonTypes_v1}inbundleAllowanceValueType" minOccurs="0"/&gt;
- *         &lt;element name="inbundleAllowanceType" type="{http://ifrs.vodafone.com/commonTypes_v1}inbundleAllowanceTypeType" minOccurs="0"/&gt;
- *         &lt;element name="serviceQuantity" type="{http://ifrs.vodafone.com/commonTypes_v1}serviceQuantityType"/&gt;
- *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v1}companyCodeType" minOccurs="0"/&gt;
- *         &lt;element name="firstPlanBillingDate" type="{http://ifrs.vodafone.com/commonTypes_v1}firstPlanBillingDateType" minOccurs="0"/&gt;
- *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v1}profitCenterType"/&gt;
- *         &lt;element name="hybridCreditPerTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v1}hybridCreditPerTimeUnitType" minOccurs="0"/&gt;
- *         &lt;element name="hybridCreditTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v1}hybridCreditTimeUnitType" minOccurs="0"/&gt;
- *         &lt;element name="excludeFromAllocation" type="{http://ifrs.vodafone.com/commonTypes_v1}excludeFromAllocationType" minOccurs="0"/&gt;
- *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v1}referenceAccountType" minOccurs="0"/&gt;
- *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v1}pOBNameType" minOccurs="0"/&gt;
- *         &lt;element name="billingType" type="{http://ifrs.vodafone.com/commonTypes_v1}billingTypeType" minOccurs="0"/&gt;
- *         &lt;element name="indirectChannelTariffEqualisationFactor" type="{http://ifrs.vodafone.com/commonTypes_v1}indirectChannelTariffEqualisationFactorType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceCode" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceCodeType"/&gt;
+ *         &lt;element name="serviceID" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceIDType"/&gt;
+ *         &lt;element name="serviceTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceTimeUnitType" minOccurs="0"/&gt;
+ *         &lt;element name="activatedServices" type="{http://ifrs.vodafone.com/commonTypes_v3}activatedServicesType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceTransferDate" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceTransferDateType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceStartDate" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceDateType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceEndDate" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceDateType" minOccurs="0"/&gt;
+ *         &lt;element name="ServiceBillingProfile" type="{http://ifrs15.vodafone.com/events/inception_v3}serviceBillingProfileComplexType"/&gt;
+ *         &lt;element name="sSP" type="{http://ifrs.vodafone.com/commonTypes_v3}sSPType"/&gt;
+ *         &lt;element name="OneOffPayments" type="{http://ifrs15.vodafone.com/events/inception_v3}oneOffPaymentListComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceEndDateEstimated" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceEndDateEstimatedType" minOccurs="0"/&gt;
+ *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v3}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
+ *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v3}mIAttributesComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="maxRolloverPeriod" type="{http://ifrs.vodafone.com/commonTypes_v3}maxRolloverPeriodType" minOccurs="0"/&gt;
+ *         &lt;element name="discountIndicator" type="{http://ifrs.vodafone.com/commonTypes_v3}discountIndicatorType" minOccurs="0"/&gt;
+ *         &lt;element name="inbundleAllowanceValue" type="{http://ifrs.vodafone.com/commonTypes_v3}inbundleAllowanceValueType" minOccurs="0"/&gt;
+ *         &lt;element name="inbundleAllowanceType" type="{http://ifrs.vodafone.com/commonTypes_v3}inbundleAllowanceTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceQuantity" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceQuantityType"/&gt;
+ *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v3}companyCodeType" minOccurs="0"/&gt;
+ *         &lt;element name="firstPlanBillingDate" type="{http://ifrs.vodafone.com/commonTypes_v3}firstPlanBillingDateType" minOccurs="0"/&gt;
+ *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v3}profitCenterType"/&gt;
+ *         &lt;element name="hybridCreditPerTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v3}hybridCreditPerTimeUnitType" minOccurs="0"/&gt;
+ *         &lt;element name="hybridCreditTimeUnit" type="{http://ifrs.vodafone.com/commonTypes_v3}hybridCreditTimeUnitType" minOccurs="0"/&gt;
+ *         &lt;element name="excludeFromAllocation" type="{http://ifrs.vodafone.com/commonTypes_v3}excludeFromAllocationType" minOccurs="0"/&gt;
+ *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v3}referenceAccountType" minOccurs="0"/&gt;
+ *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v3}pOBNameType" minOccurs="0"/&gt;
+ *         &lt;element name="billingType" type="{http://ifrs.vodafone.com/commonTypes_v3}billingTypeType" minOccurs="0"/&gt;
+ *         &lt;element name="indirectChannelTariffEqualisationFactor" type="{http://ifrs.vodafone.com/commonTypes_v3}indirectChannelTariffEqualisationFactorType" minOccurs="0"/&gt;
+ *         &lt;element name="serviceType" type="{http://ifrs.vodafone.com/commonTypes_v3}serviceTypeType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -69,6 +72,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "serviceCode",
     "serviceID",
     "serviceTimeUnit",
+    "activatedServices",
+    "serviceTransferDate",
     "serviceStartDate",
     "serviceEndDate",
     "serviceBillingProfile",
@@ -91,7 +96,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "referenceAccount",
     "pobName",
     "billingType",
-    "indirectChannelTariffEqualisationFactor"
+    "indirectChannelTariffEqualisationFactor",
+    "serviceType"
 })
 public class ServiceComplexType {
 
@@ -106,6 +112,9 @@ public class ServiceComplexType {
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "token")
     protected String serviceTimeUnit;
+    protected BigInteger activatedServices;
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar serviceTransferDate;
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar serviceStartDate;
     @XmlSchemaType(name = "date")
@@ -159,6 +168,10 @@ public class ServiceComplexType {
     @XmlSchemaType(name = "token")
     protected String billingType;
     protected BigDecimal indirectChannelTariffEqualisationFactor;
+    @XmlElement(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "token")
+    protected String serviceType;
 
     /**
      * Obtiene el valor de la propiedad serviceCode.
@@ -230,6 +243,54 @@ public class ServiceComplexType {
      */
     public void setServiceTimeUnit(String value) {
         this.serviceTimeUnit = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad activatedServices.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getActivatedServices() {
+        return activatedServices;
+    }
+
+    /**
+     * Define el valor de la propiedad activatedServices.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setActivatedServices(BigInteger value) {
+        this.activatedServices = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad serviceTransferDate.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getServiceTransferDate() {
+        return serviceTransferDate;
+    }
+
+    /**
+     * Define el valor de la propiedad serviceTransferDate.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setServiceTransferDate(XMLGregorianCalendar value) {
+        this.serviceTransferDate = value;
     }
 
     /**
@@ -782,6 +843,30 @@ public class ServiceComplexType {
      */
     public void setIndirectChannelTariffEqualisationFactor(BigDecimal value) {
         this.indirectChannelTariffEqualisationFactor = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad serviceType.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    /**
+     * Define el valor de la propiedad serviceType.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setServiceType(String value) {
+        this.serviceType = value;
     }
 
 }

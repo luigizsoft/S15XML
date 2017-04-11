@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -29,14 +29,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="rebateID" type="{http://ifrs.vodafone.com/commonTypes_v1}rebateIDType"/&gt;
- *         &lt;element name="rebateStartDate" type="{http://ifrs.vodafone.com/commonTypes_v1}rebateDateType" minOccurs="0"/&gt;
- *         &lt;element name="rebateEndDate" type="{http://ifrs.vodafone.com/commonTypes_v1}rebateDateType" minOccurs="0"/&gt;
- *         &lt;element name="annualRebateValue" type="{http://ifrs.vodafone.com/commonTypes_v1}annualRebateValueType"/&gt;
- *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v1}profitCenterType"/&gt;
- *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v1}referenceAccountType" minOccurs="0"/&gt;
- *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v1}pOBNameType" minOccurs="0"/&gt;
- *         &lt;element name="rebateType" type="{http://ifrs.vodafone.com/commonTypes_v1}rebateTypeType"/&gt;
+ *         &lt;element name="rebateID" type="{http://ifrs.vodafone.com/commonTypes_v3}rebateIDType"/&gt;
+ *         &lt;element name="rebateStartDate" type="{http://ifrs.vodafone.com/commonTypes_v3}rebateDateType" minOccurs="0"/&gt;
+ *         &lt;element name="rebateEndDate" type="{http://ifrs.vodafone.com/commonTypes_v3}rebateDateType" minOccurs="0"/&gt;
+ *         &lt;element name="annualRebateValue" type="{http://ifrs.vodafone.com/commonTypes_v3}annualRebateValueType"/&gt;
+ *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v3}profitCenterType"/&gt;
+ *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v3}referenceAccountType" minOccurs="0"/&gt;
+ *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v3}pOBNameType" minOccurs="0"/&gt;
+ *         &lt;element name="rebateType" type="{http://ifrs.vodafone.com/commonTypes_v3}rebateTypeType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;

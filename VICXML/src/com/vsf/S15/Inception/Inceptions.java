@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Header" type="{http://ifrs.vodafone.com/commonTypes_v1}fileHeaderComplexType"/&gt;
- *         &lt;element name="Data" type="{http://ifrs15.vodafone.com/events/inception_v1}inceptionsComplexType"/&gt;
- *         &lt;element name="Footer" type="{http://ifrs.vodafone.com/commonTypes_v1}fileFooterComplexType"/&gt;
+ *         &lt;element name="Header" type="{http://ifrs.vodafone.com/commonTypes_v3}fileHeaderComplexType"/&gt;
+ *         &lt;element name="Data" type="{http://ifrs15.vodafone.com/events/inception_v3}inceptionsComplexType"/&gt;
+ *         &lt;element name="Footer" type="{http://ifrs.vodafone.com/commonTypes_v3}fileFooterComplexType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;

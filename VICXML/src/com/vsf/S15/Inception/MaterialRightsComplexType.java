@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -30,19 +30,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="materialRightCode" type="{http://ifrs.vodafone.com/commonTypes_v1}materialRightCodeType"/&gt;
- *         &lt;element name="materialRightID" type="{http://ifrs.vodafone.com/commonTypes_v1}materialRightIDType"/&gt;
- *         &lt;element name="materialRightStartDate" type="{http://ifrs.vodafone.com/commonTypes_v1}materialRightDateType" minOccurs="0"/&gt;
- *         &lt;element name="materialRightEndDate" type="{http://ifrs.vodafone.com/commonTypes_v1}materialRightDateType" minOccurs="0"/&gt;
- *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v1}companyCodeType" minOccurs="0"/&gt;
- *         &lt;element name="materialRightValue" type="{http://ifrs.vodafone.com/commonTypes_v1}materialRightValueType"/&gt;
- *         &lt;element name="likelihoodOfExcercise" type="{http://ifrs.vodafone.com/commonTypes_v1}likelihoodOfExcerciseType"/&gt;
- *         &lt;element name="timeLimit" type="{http://ifrs.vodafone.com/commonTypes_v1}timeLimitType"/&gt;
- *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v1}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
- *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v1}mIAttributesComplexType" minOccurs="0"/&gt;
- *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v1}profitCenterType"/&gt;
- *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v1}referenceAccountType" minOccurs="0"/&gt;
- *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v1}pOBNameType" minOccurs="0"/&gt;
+ *         &lt;element name="materialRightCode" type="{http://ifrs.vodafone.com/commonTypes_v3}materialRightCodeType"/&gt;
+ *         &lt;element name="materialRightID" type="{http://ifrs.vodafone.com/commonTypes_v3}materialRightIDType"/&gt;
+ *         &lt;element name="materialRightStartDate" type="{http://ifrs.vodafone.com/commonTypes_v3}materialRightDateType" minOccurs="0"/&gt;
+ *         &lt;element name="materialRightEndDate" type="{http://ifrs.vodafone.com/commonTypes_v3}materialRightDateType" minOccurs="0"/&gt;
+ *         &lt;element name="companyCode" type="{http://ifrs.vodafone.com/commonTypes_v3}companyCodeType" minOccurs="0"/&gt;
+ *         &lt;element name="materialRightValue" type="{http://ifrs.vodafone.com/commonTypes_v3}materialRightValueType"/&gt;
+ *         &lt;element name="likelihoodOfExcercise" type="{http://ifrs.vodafone.com/commonTypes_v3}likelihoodOfExcerciseType"/&gt;
+ *         &lt;element name="timeLimit" type="{http://ifrs.vodafone.com/commonTypes_v3}timeLimitType"/&gt;
+ *         &lt;element name="lMSpecificMiDimensions" type="{http://ifrs.vodafone.com/commonTypes_v3}lMSpecificMiDimensionsType" minOccurs="0"/&gt;
+ *         &lt;element name="MIAttributes" type="{http://ifrs15.vodafone.com/events/inception_v3}mIAttributesComplexType" minOccurs="0"/&gt;
+ *         &lt;element name="profitCenter" type="{http://ifrs.vodafone.com/commonTypes_v3}profitCenterType"/&gt;
+ *         &lt;element name="referenceAccount" type="{http://ifrs.vodafone.com/commonTypes_v3}referenceAccountType" minOccurs="0"/&gt;
+ *         &lt;element name="pOBName" type="{http://ifrs.vodafone.com/commonTypes_v3}pOBNameType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;

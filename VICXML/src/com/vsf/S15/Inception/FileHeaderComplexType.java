@@ -2,16 +2,19 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
 package com.vsf.S15.Inception;
 
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -25,8 +28,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="fileName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="createdAt" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="fileSequenceID" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="createdAt" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="fileSequenceID" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
  *         &lt;element name="sourceEvent" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="sourceOpco" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
@@ -38,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "fileHeaderComplexType", namespace = "http://ifrs.vodafone.com/commonTypes_v1", propOrder = {
+@XmlType(name = "fileHeaderComplexType", namespace = "http://ifrs.vodafone.com/commonTypes_v3", propOrder = {
     "fileName",
     "createdAt",
     "fileSequenceID",
@@ -50,9 +53,10 @@ public class FileHeaderComplexType {
     @XmlElement(required = true)
     protected String fileName;
     @XmlElement(required = true)
-    protected String createdAt;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar createdAt;
     @XmlElement(required = true)
-    protected String fileSequenceID;
+    protected BigInteger fileSequenceID;
     @XmlElement(required = true)
     protected String sourceEvent;
     @XmlElement(required = true)
@@ -87,10 +91,10 @@ public class FileHeaderComplexType {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getCreatedAt() {
+    public XMLGregorianCalendar getCreatedAt() {
         return createdAt;
     }
 
@@ -99,10 +103,10 @@ public class FileHeaderComplexType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setCreatedAt(String value) {
+    public void setCreatedAt(XMLGregorianCalendar value) {
         this.createdAt = value;
     }
 
@@ -111,10 +115,10 @@ public class FileHeaderComplexType {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public String getFileSequenceID() {
+    public BigInteger getFileSequenceID() {
         return fileSequenceID;
     }
 
@@ -123,10 +127,10 @@ public class FileHeaderComplexType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public void setFileSequenceID(String value) {
+    public void setFileSequenceID(BigInteger value) {
         this.fileSequenceID = value;
     }
 

@@ -17,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para fundsListComplexType complex type.
+ * <p>Clase Java para POBLevelListComplexType complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="fundsListComplexType"&gt;
+ * &lt;complexType name="POBLevelListComplexType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Fund" type="{http://ifrs15.vodafone.com/events/inception_v3}fundComplexType" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="POBLevel" type="{http://ifrs15.vodafone.com/events/inception_v3}POBLevelComplexType" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,41 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "fundsListComplexType", propOrder = {
-    "fund"
+@XmlType(name = "POBLevelListComplexType", propOrder = {
+    "pobLevel"
 })
-public class FundsListComplexType {
+public class POBLevelListComplexType {
 
-    @XmlElement(name = "Fund", required = true)
-    protected List<FundComplexType> fund;
+    @XmlElement(name = "POBLevel", required = true)
+    protected List<POBLevelComplexType> pobLevel;
 
     /**
-     * Gets the value of the fund property.
+     * Gets the value of the pobLevel property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the fund property.
+     * This is why there is not a <CODE>set</CODE> method for the pobLevel property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getFund().add(newItem);
+     *    getPOBLevel().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FundComplexType }
+     * {@link POBLevelComplexType }
      * 
      * 
      */
-    public List<FundComplexType> getFund() {
-        if (fund == null) {
-            fund = new ArrayList<FundComplexType>();
+    public List<POBLevelComplexType> getPOBLevel() {
+        if (pobLevel == null) {
+            pobLevel = new ArrayList<POBLevelComplexType>();
         }
-        return this.fund;
+        return this.pobLevel;
     }
 
 }

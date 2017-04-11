@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.04.02 a las 12:44:26 AM CEST 
+// Generado el: 2017.04.11 a las 12:11:23 PM CEST 
 //
 
 
@@ -38,10 +38,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Inceptions }
-     * @param objInception 
      * 
      */
-    public Inceptions createInceptions(InceptionComplexType objInception) {
+    public Inceptions createInceptions() {
         return new Inceptions();
     }
 
@@ -198,19 +197,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LeasingListComplexType }
+     * Create an instance of {@link CostListComplexType }
      * 
      */
-    public LeasingListComplexType createLeasingListComplexType() {
-        return new LeasingListComplexType();
+    public CostListComplexType createCostListComplexType() {
+        return new CostListComplexType();
     }
 
     /**
-     * Create an instance of {@link LeasingComplexType }
+     * Create an instance of {@link CostComplexType }
      * 
      */
-    public LeasingComplexType createLeasingComplexType() {
-        return new LeasingComplexType();
+    public CostComplexType createCostComplexType() {
+        return new CostComplexType();
+    }
+
+    /**
+     * Create an instance of {@link ContractLevelListComplexType }
+     * 
+     */
+    public ContractLevelListComplexType createContractLevelListComplexType() {
+        return new ContractLevelListComplexType();
+    }
+
+    /**
+     * Create an instance of {@link ContractLevelComplexType }
+     * 
+     */
+    public ContractLevelComplexType createContractLevelComplexType() {
+        return new ContractLevelComplexType();
+    }
+
+    /**
+     * Create an instance of {@link AmountListComplexType }
+     * 
+     */
+    public AmountListComplexType createAmountListComplexType() {
+        return new AmountListComplexType();
+    }
+
+    /**
+     * Create an instance of {@link AmountComplexType }
+     * 
+     */
+    public AmountComplexType createAmountComplexType() {
+        return new AmountComplexType();
+    }
+
+    /**
+     * Create an instance of {@link POBLevelListComplexType }
+     * 
+     */
+    public POBLevelListComplexType createPOBLevelListComplexType() {
+        return new POBLevelListComplexType();
+    }
+
+    /**
+     * Create an instance of {@link POBLevelComplexType }
+     * 
+     */
+    public POBLevelComplexType createPOBLevelComplexType() {
+        return new POBLevelComplexType();
     }
 
 }
