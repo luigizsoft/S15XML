@@ -110,7 +110,7 @@ public class Principal {
 	static int NuevoContrato=0;
 	static int NumContratos=1;
 //	static int NumContratosXfichero=32;
-	static int NumContratosXfichero=200;
+	static int NumContratosXfichero=12000;
 	
 	static int GeneradoFichero=0;
 
