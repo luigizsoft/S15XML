@@ -22,47 +22,107 @@ import com.vsf.S15.Inception.ServiceComplexType;
 import com.vsf.S15.Inception.ServiceListComplexType;
 import com.vsf.*;
 
-
 public class Principal {
 
-	 static int NumLinea=0;
+	static int NumLinea=0;
 // Indices de los campos al deconstruir la linea del fichero
-	// Para el evento
+	// Para el evento/Contrato
 	static final int f_eventType			=0;
 	static final int f_eventDate			=1;
-//	static final int f_APID_Contract		=2;
 	static final int f_eventContractID		=2;
-	static final int f_companyCode			=3;
-	static final int f_contractStartDate	=4;
-	static final int f_contractEndDate		=5;
-	static final int f_firstPlanBillingDate	=6;
-	static final int f_billingType			=7;
+	static final int f_eventSynonimId		=3;
+	static final int f_companyCode			=4;
+	static final int f_contractStartDate	=5;
+	static final int f_contractEndDate		=6;
+	static final int f_contractTimeUnit		=7;
+	static final int f_firstPlanBillingDate	=8;
+	static final int f_catchUpIndicator		=9;
+	static final int f_billingType			=10;
+	static final int f_averageDiscountFactor=11;
+	static final int f_currency				=12;
 	// Para el array de Servicios o Dispositivos
-	static final int f_TipoElemento			=9; //Determina si es un Dispositivo (D) o un Servicio (S)
-	static final int f_CD_POB				=11;
-	static final int f_ID_Unico				=12; // El que corresponda al dispositivo o al servicio
-	static final int f_StartDate			=13; // Fecha inicio Servicio / Transfer Date Dispositivo
-	static final int f_EndDate				=14; // Fecha fin Servicio / null Dispositivo
-	static final int f_BillProf				=15; // Billing Profile
+	static final int f_TipoElemento			=13; //Determina si es un Dispositivo (D) o un Servicio (S)
+	static final int f_POB_CD_POB				=14;
+	static final int f_POB_ID_Unico				=15; // 
+	static final int f_POB_serviceTimeUnit		=16; //Aplica solo a Servicios 
+	static final int f_POB_activatedServices	=17; //Aplica solo a Servicios 
+	static final int f_POB_transferDate			=18; // 
+	static final int f_POB_StartDate			=19; // Fecha inicio Servicio / Transfer Date Dispositivo
+	static final int f_POB_EndDate				=20; // Fecha fin Servicio / null Dispositivo
+	static final int f_POB_BillProfIndex		=21; // Orden de los valores de Billing Profile. Uso interno
+	static final int f_POB_BillProf				=22; // Billing Profile
+	static final int f_POB_ssp					=23;
+	static final int f_POB_oneOffPaymentType	=24;
+	static final int f_POB_oneOffPaymentAmount	=25;
+	static final int f_POB_serviceEndDateEstimated=26; // Solo aplica a SERVICIOS
+	static final int f_POB_financingDiscountRate=27; // Solo aplica a DISPOSITIVOS
+	// Para COPA a nivel de POB
+	static final int f_POB_COPA_customerType			=28;
+	static final int f_POB_COPA_callOriginDestination	=29;
+	static final int f_POB_COPA_channel					=30;
+	static final int f_POB_COPA_segment					=31;
+	static final int f_POB_COPA_bearerTechnology		=32;
+	static final int f_POB_COPA_valueTier				=33;
+	static final int f_POB_COPA_proposition				=34;
+	static final int f_POB_COPA_deviceTechnology		=35;
+	static final int f_POB_COPA_customer				=36;
+	static final int f_POB_COPA_spare1					=37;
+	static final int f_POB_COPA_spare2					=38;
+	static final int f_POB_COPA_brand					=39;
+	static final int f_POB_COPA_documentType			=40;
+	static final int f_POB_COPA_tradingPartner			=41;
+	static final int f_POB_COPA_batch					=42;
+	static final int f_POB_COPA_valuationType			=43;
+	static final int f_POB_COPA_functionalArea			=44;
+	static final int f_POB_COPA_orderNumber				=45;
+	static final int f_POB_COPA_salesOffice				=46;
+	static final int f_POB_COPA_salesOrg				=47;
+	// Continuamos con POB 
+	static final int f_POB_maxRolloverPeriod	=48;// Solo aplica a SERVICIOS
+	static final int f_POB_discountIndicator	=49;
+	static final int f_POB_quantity				=50;
+	static final int f_POB_avgDiscountFactor	=51;// Solo aplica a DISPOSITIVOS (También está a nivel de contrato)
+	static final int f_POB_companyCode			=52;
+	static final int f_POB_firstPlanBillingDate	=53;
+	static final int f_POB_profitCenter			=54;
+	static final int f_POB_excludeFromAllocation=55;
+	static final int f_POB_referenceAccount		=56;
+	static final int f_POB_pobName				=57;
+	static final int f_POB_billingType			=58;
+	static final int f_POB_indirectChannel		=59; // Solo aplica a SERVICIOS
+	static final int f_POB_serviceType			=60; // Solo aplica a SERVICIOS
+	//Costes // Solo aplica para SVT
+	static final int f_POB_Cost_companyCode		=61; 
+	static final int f_POB_Cost_costTransferDate=62; 
+	static final int f_POB_Cost_serviceIDDeviceID=63; //Se crea para la matriz de POB_Level
+	static final int f_POB_Cost_costAmount		=64; // Matriz Amount dentreo de POB_Level
+	static final int f_POB_Cost_costType		=65; // Matriz Amount dentreo de POB_Level
+	static final int f_POB_Cost_referenceAccount=66; // Matriz Amount dentreo de POB_Level
 	
 	static String ID_Servicio="";
 	static String ID_Device="";
+	static String POB_Code="";
 	
-	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
+//	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
+	static final String ficheroSalidaXML="";
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	static int NuevoContrato=0;
 	static int NumContratos=1;
-	static int NumContratosXfichero=32;
+//	static int NumContratosXfichero=32;
+	static int NumContratosXfichero=200;
 	
 	static int GeneradoFichero=0;
+
+	
+	
+	
 	
 	public static void main(String[] args) throws IOException, DatatypeConfigurationException, JAXBException, InstantiationException, IllegalAccessException  {
 		// TODO Auto-generated method stub
 		String Fichero=args[0];
 		String linea;
 		String[]Campos;
-		
 		// Inicializamos objetos
 		Inceptions S15Incept = new Inceptions();
 		InceptionsComplexType lstInceptions = new InceptionsComplexType(); // Lista de inceptions
@@ -73,7 +133,7 @@ public class Principal {
 		ServiceBillingProfileComplexType ServBillProf= new ServiceBillingProfileComplexType();
 		DeviceComplexType Device = new DeviceComplexType();
 		DeviceBillingProfileComplexType DevBillProf= new DeviceBillingProfileComplexType();
-		
+
 		// Variable para guardar y detectar el cambio de contrato
 		String aContratcID="";
 		System.out.println("Comenzando generacion XML...");
@@ -86,7 +146,7 @@ public class Principal {
 				Campos = linea.split(";"); // Deconstruyo el registro en campos
 				
 // Si cambia la POB o el contrato, generamos nuevo grupo (Esto se hace para Billing profile)			
-if (!ID_Servicio.equals(Campos[f_ID_Unico])||!aContratcID.equals(Campos[f_eventContractID].trim())){
+if (!ID_Servicio.equals(Campos[f_POB_ID_Unico])||!aContratcID.equals(Campos[f_eventContractID].trim())||!POB_Code.equals(Campos[f_POB_CD_POB])){
 
 				if (NuevoFichero==1){ // Si se decide generar un nuevo fichero
 				//	NumFichero ++; // Incrementamos para saber el numero de ficheros generados
@@ -102,6 +162,21 @@ if (!ID_Servicio.equals(Campos[f_ID_Unico])||!aContratcID.equals(Campos[f_eventC
 					tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
 					tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					tdInception.setEventContractID(Campos[f_eventContractID]);
+					Utiles.addContractAtrib(tdInception, 
+					Campos[f_eventType],
+							Campos[f_eventDate],
+							Campos[f_eventContractID],
+							Campos[f_eventSynonimId],
+							Campos[f_companyCode],
+							Campos[f_contractStartDate],
+							Campos[f_contractEndDate],
+							Campos[f_contractTimeUnit],
+							Campos[f_firstPlanBillingDate],
+							Campos[f_catchUpIndicator],
+							Campos[f_billingType],
+							Campos[f_averageDiscountFactor],
+							Campos[f_currency]);
+					
 					
 					NuevoFichero=0; 
 				} else{
@@ -140,20 +215,31 @@ if (0==0){ //Para en debug no ejecutar este cacho
 				if (Utiles.EsServicio(Campos[f_TipoElemento])){
 					// Informamos los datos de servicios 
 						// Si cambia de servicio se crea uno nuevo
-					if (!ID_Servicio.equals(Campos[f_ID_Unico])){
+					if (!ID_Servicio.equals(Campos[f_POB_ID_Unico])||!POB_Code.equals(Campos[f_POB_CD_POB])){
 						Servicio= new ServiceComplexType();
 						ServBillProf = new ServiceBillingProfileComplexType();
-						Utiles.addServiceAtrib(Servicio, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
+					//	Utiles.addServiceAtrib(Servicio, Campos[f_POB_CD_POB],Campos[f_POB_ID_Unico],Campos[f_POB_StartDate],Campos[f_POB_EndDate] ); // Asignamos los valores
+						Utiles.addServiceAtrib(Servicio,
+								Campos[f_POB_CD_POB],
+								Campos[f_POB_ID_Unico],
+								Campos[f_POB_serviceTimeUnit],
+								Campos[f_POB_activatedServices],
+								Campos[f_POB_transferDate],
+								Campos[f_POB_StartDate],
+								Campos[f_POB_EndDate]);
+
 						vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
 					}
 
 					// Billing Profile
-					BigDecimal Importe = new BigDecimal(Campos[f_BillProf]);
+		//			BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
+					// Temporal
+					BigDecimal Importe = new BigDecimal("3");
 					ServBillProf.getBillingAmount().add(Importe);
 					Servicio.setServiceBillingProfile(ServBillProf);
 
-					ID_Servicio=Campos[f_ID_Unico];
-					
+					ID_Servicio=Campos[f_POB_ID_Unico];
+					POB_Code=Campos[f_POB_CD_POB];
 			////////////////////
 			/// POBs Dispositivos
 			////////////////////
@@ -161,18 +247,32 @@ if (0==0){ //Para en debug no ejecutar este cacho
 				} else if (Utiles.EsDispositivo(Campos[f_TipoElemento])){
 									// Informamos los datos de dispositivos 
 									// Si cambia de dispositivo se crea uno nuevo
-								if (!ID_Device.equals(Campos[f_ID_Unico])){
+								if (!ID_Device.equals(Campos[f_POB_ID_Unico])||!POB_Code.equals(Campos[f_POB_CD_POB])){
 									Device= new DeviceComplexType();
 									DevBillProf = new DeviceBillingProfileComplexType();
-									Utiles.addDeviceAtrib(Device, Campos[f_CD_POB],Campos[f_ID_Unico],Campos[f_StartDate],Campos[f_EndDate] ); // Asignamos los valores
+//									Utiles.addDeviceAtrib(Device, Campos[f_POB_CD_POB],Campos[f_POB_ID_Unico],Campos[f_POB_StartDate],Campos[f_POB_EndDate] ); // Asignamos los valores
+									Utiles.addDeviceAtrib(Device,
+											Campos[f_POB_CD_POB],
+											Campos[f_POB_ID_Unico],
+											Campos[f_POB_serviceTimeUnit],
+											Campos[f_POB_activatedServices],
+											Campos[f_POB_transferDate],
+											Campos[f_POB_StartDate],
+											Campos[f_POB_EndDate]);
+
+
 									vListaDev.getDevice().add(Device);// Agregamos a la lista de servicios
 								}
 								// Billing Profile
-								BigDecimal Importe = new BigDecimal(Campos[f_BillProf]);
+//								BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
+								// Temporal
+								BigDecimal Importe = new BigDecimal("3");
 								DevBillProf.getBillingAmount().add(Importe);
 								Device.setDeviceBillingProfile(DevBillProf);
 				
-								ID_Device=Campos[f_ID_Unico];
+								ID_Device=Campos[f_POB_ID_Unico];
+								POB_Code=Campos[f_POB_CD_POB];
+
 						// Informamos los datos de dispositivos 
 						//DeviceComplexType	Device = new DeviceComplexType(); // Creamos un servicio
 				} else {
