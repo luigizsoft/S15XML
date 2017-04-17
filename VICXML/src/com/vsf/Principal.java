@@ -18,6 +18,7 @@ import com.vsf.S15.Inception.DeviceListComplexType;
 import com.vsf.S15.Inception.InceptionComplexType;
 import com.vsf.S15.Inception.Inceptions;
 import com.vsf.S15.Inception.InceptionsComplexType;
+import com.vsf.S15.Inception.MIAttributesComplexType;
 import com.vsf.S15.Inception.ServiceBillingProfileComplexType;
 import com.vsf.S15.Inception.ServiceComplexType;
 import com.vsf.S15.Inception.ServiceListComplexType;
@@ -105,12 +106,13 @@ public class Principal {
 	static String POB_Code="";
 
 	// Para Windows
-	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
+//	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida\\CON_";
+	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\CON_";
 	static final String ficheroSalidaControl="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\";
 
 	// PAra unix
 //	static final String ficheroSalidaControl="";
-//	static final String ficheroSalidaXML="";
+//	static final String ficheroSalidaXML="CON";
 
 	
 	static int NumFichero =0;
@@ -157,6 +159,10 @@ public class Principal {
 		ServiceBillingProfileComplexType ServBillProf= new ServiceBillingProfileComplexType();
 		DeviceComplexType Device = new DeviceComplexType();
 		DeviceBillingProfileComplexType DevBillProf= new DeviceBillingProfileComplexType();
+		MIAttributesComplexType COPAService = new MIAttributesComplexType();
+		MIAttributesComplexType COPADevice = new MIAttributesComplexType();
+		
+		
 
 		// Variable para guardar y detectar el cambio de contrato
 		String aContratcID="";
@@ -272,8 +278,24 @@ if (0==0){ //Para en debug no ejecutar este cacho
 								Campos[f_POB_activatedServices],
 								Campos[f_POB_transferDate],
 								Campos[f_POB_StartDate],
-								Campos[f_POB_EndDate]);
-
+								Campos[f_POB_EndDate],
+								Campos[f_POB_ssp],
+								Campos[f_POB_serviceEndDateEstimated],
+								Campos[f_POB_maxRolloverPeriod],
+								Campos[f_POB_discountIndicator],
+								Campos[f_POB_quantity],
+								Campos[f_POB_companyCode],
+								Campos[f_POB_firstPlanBillingDate],
+							    Campos[f_POB_profitCenter],
+							    Campos[f_POB_excludeFromAllocation],
+							    Campos[f_POB_referenceAccount],
+							    Campos[f_POB_pobName],
+							    Campos[f_POB_billingType],
+							    Campos[f_POB_indirectChannel],
+							    Campos[f_POB_serviceType]
+								
+								);
+					
 						vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
 						CtrlNumPobs ++;
 
@@ -286,6 +308,36 @@ if (0==0){ //Para en debug no ejecutar este cacho
 					ServBillProf.getBillingAmount().add(Importe);
 					Servicio.setServiceBillingProfile(ServBillProf);
 
+			/////////////////////
+			/// COPA SERVICIOS///
+			/////////////////////
+					COPAService=new MIAttributesComplexType();
+					Utiles.AddPobCOPAServ(Servicio,COPAService, 
+							Campos[f_POB_COPA_customerType],
+							Campos[f_POB_COPA_callOriginDestination],
+							Campos[f_POB_COPA_channel],
+							Campos[f_POB_COPA_segment],
+							Campos[f_POB_COPA_bearerTechnology],
+							Campos[f_POB_COPA_valueTier],
+							Campos[f_POB_COPA_proposition],
+							Campos[f_POB_COPA_deviceTechnology],
+							Campos[f_POB_COPA_customer],
+							Campos[f_POB_COPA_spare1],
+							Campos[f_POB_COPA_spare2],
+							Campos[f_POB_COPA_brand],
+							Campos[f_POB_COPA_documentType],
+							Campos[f_POB_COPA_tradingPartner],
+							Campos[f_POB_COPA_batch],
+							Campos[f_POB_COPA_valuationType],
+							Campos[f_POB_COPA_functionalArea],
+							Campos[f_POB_COPA_orderNumber],
+							Campos[f_POB_COPA_salesOffice],
+							Campos[f_POB_COPA_salesOrg]
+							);
+
+					
+					
+			/////////////////////
 					ID_Servicio=Campos[f_POB_ID_Unico];
 					POB_Code=Campos[f_POB_CD_POB];
 			////////////////////
@@ -302,11 +354,26 @@ if (0==0){ //Para en debug no ejecutar este cacho
 									Utiles.addDeviceAtrib(Device,
 											Campos[f_POB_CD_POB],
 											Campos[f_POB_ID_Unico],
-											Campos[f_POB_serviceTimeUnit],
-											Campos[f_POB_activatedServices],
+											//Campos[f_POB_serviceTimeUnit],
+										//	Campos[f_POB_activatedServices],
 											Campos[f_POB_transferDate],
 											Campos[f_POB_StartDate],
-											Campos[f_POB_EndDate]);
+											Campos[f_POB_EndDate],
+											Campos[f_POB_ssp],
+											Campos[f_POB_financingDiscountRate],
+										//	Campos[f_POB_maxRolloverPeriod],
+											Campos[f_POB_discountIndicator],
+											Campos[f_POB_quantity],
+											Campos[f_POB_avgDiscountFactor],
+											Campos[f_POB_companyCode],
+											Campos[f_POB_firstPlanBillingDate],
+										    Campos[f_POB_profitCenter],
+										    Campos[f_POB_excludeFromAllocation],
+										    Campos[f_POB_referenceAccount],
+										    Campos[f_POB_pobName],
+										    Campos[f_POB_billingType]
+										    
+											);
 
 
 									vListaDev.getDevice().add(Device);// Agregamos a la lista de servicios
@@ -320,6 +387,37 @@ if (0==0){ //Para en debug no ejecutar este cacho
 								//
 								DevBillProf.getBillingAmount().add(Importe);
 								Device.setDeviceBillingProfile(DevBillProf);
+								/////////////////////
+								/// COPA DEVICES///
+								/////////////////////
+								COPADevice=new MIAttributesComplexType();
+								Utiles.AddPobCOPADev(Device,COPADevice, 
+										Campos[f_POB_COPA_customerType],
+										Campos[f_POB_COPA_callOriginDestination],
+										Campos[f_POB_COPA_channel],
+										Campos[f_POB_COPA_segment],
+										Campos[f_POB_COPA_bearerTechnology],
+										Campos[f_POB_COPA_valueTier],
+										Campos[f_POB_COPA_proposition],
+										Campos[f_POB_COPA_deviceTechnology],
+										Campos[f_POB_COPA_customer],
+										Campos[f_POB_COPA_spare1],
+										Campos[f_POB_COPA_spare2],
+										Campos[f_POB_COPA_brand],
+										Campos[f_POB_COPA_documentType],
+										Campos[f_POB_COPA_tradingPartner],
+										Campos[f_POB_COPA_batch],
+										Campos[f_POB_COPA_valuationType],
+										Campos[f_POB_COPA_functionalArea],
+										Campos[f_POB_COPA_orderNumber],
+										Campos[f_POB_COPA_salesOffice],
+										Campos[f_POB_COPA_salesOrg]
+										);
+
+										
+										
+								/////////////////////
+
 				
 								ID_Device=Campos[f_POB_ID_Unico];
 								POB_Code=Campos[f_POB_CD_POB];

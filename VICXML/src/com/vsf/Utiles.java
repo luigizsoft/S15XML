@@ -29,6 +29,7 @@ import com.vsf.S15.Inception.DeviceComplexType;
 import com.vsf.S15.Inception.InceptionComplexType;
 import com.vsf.S15.Inception.Inceptions;
 import com.vsf.S15.Inception.InceptionsComplexType;
+import com.vsf.S15.Inception.MIAttributesComplexType;
 import com.vsf.S15.Inception.ObjectFactory;
 import com.vsf.S15.Inception.ServiceComplexType;
 import com.vsf.S15.Inception.ServiceListComplexType;
@@ -171,7 +172,23 @@ public class Utiles {
 			String f_POB_activatedServices,
 			String f_POB_transferDate,
 			String f_POB_StartDate,
-			String f_POB_EndDate) throws DatatypeConfigurationException{
+			String f_POB_EndDate,
+			String f_POB_ssp,
+			String f_POB_serviceEndDateEstimated,
+			String f_POB_maxRolloverPeriod,
+			String f_POB_discountIndicator,
+			String f_POB_quantity,
+			String f_POB_companyCode,
+			String f_POB_firstPlanBillingDate	,
+		    String f_POB_profitCenter			,
+		    String f_POB_excludeFromAllocation  ,
+		    String f_POB_referenceAccount		,
+		    String f_POB_pobName				,
+		    String f_POB_billingType			,
+		    String f_POB_indirectChannel		,
+		    String f_POB_serviceType			
+			
+			) throws DatatypeConfigurationException{
 		
 		Servicio.setServiceCode(f_POB_CD_POB);
 		Servicio.setServiceID(f_POB_ID_Unico);
@@ -180,28 +197,166 @@ public class Utiles {
 		Servicio.setServiceTransferDate(FechaXML(f_POB_transferDate));
 		Servicio.setServiceStartDate(FechaXML(f_POB_StartDate));
 		Servicio.setServiceEndDate(FechaXML(f_POB_EndDate));
+		Servicio.setSSP(DecimalXML(f_POB_ssp));
+		// Falta por incluir One-off
+		Servicio.setServiceEndDateEstimated(FechaXML(f_POB_serviceEndDateEstimated));
+		Servicio.setMaxRolloverPeriod(IntXML(f_POB_maxRolloverPeriod));
+		Servicio.setDiscountIndicator(f_POB_discountIndicator);
+		Servicio.setServiceQuantity(IntXML(f_POB_quantity));
+		Servicio.setCompanyCode(f_POB_companyCode);
+		Servicio.setFirstPlanBillingDate(FechaXML(f_POB_firstPlanBillingDate));
+		Servicio.setProfitCenter(f_POB_profitCenter);
+		Servicio.setExcludeFromAllocation(f_POB_excludeFromAllocation);
+		Servicio.setReferenceAccount(f_POB_referenceAccount);
+		Servicio.setPOBName(f_POB_pobName);
+		Servicio.setBillingType(f_POB_billingType);
+		Servicio.setIndirectChannelTariffEqualisationFactor(DecimalXML(f_POB_indirectChannel));
+		Servicio.setServiceType(f_POB_serviceType);
 		
-
+		
 	}
 
 	public static void addDeviceAtrib(DeviceComplexType Device, 
 			String f_POB_CD_POB, String f_POB_ID_Unico, 
-			String f_POB_serviceTimeUnit,
-			String f_POB_activatedServices,
+		//	String f_POB_serviceTimeUnit,
+		//	String f_POB_activatedServices,
 			String f_POB_transferDate,
 			String f_POB_StartDate,
-			String f_POB_EndDate) throws DatatypeConfigurationException{
+			String f_POB_EndDate,
+			String f_POB_ssp,
+			String f_POB_financingDiscountRate,
+			String f_POB_discountIndicator		,
+			String f_POB_quantity				,
+			String f_POB_avgDiscountFactor		,
+			String f_POB_companyCode			,
+			String f_POB_firstPlanBillingDate	,
+		    String f_POB_profitCenter			,
+		    String f_POB_excludeFromAllocation  ,
+		    String f_POB_referenceAccount		,
+		    String f_POB_pobName				,
+		    String f_POB_billingType			
+			) throws DatatypeConfigurationException{
 		
 		
 		Device.setDeviceCode(f_POB_CD_POB);
 		Device.setDeviceID(f_POB_ID_Unico);
+	
 		Device.setDeviceTransferDate(FechaXML(f_POB_transferDate));
 		Device.setDeviceStartDate(FechaXML(f_POB_StartDate));
 		Device.setDeviceEndDate(FechaXML(f_POB_EndDate));
-
-
+		Device.setSSP(DecimalXML(f_POB_ssp));
+		// Falta por incluir One-off
+		Device.setFinancingDiscountRate(DecimalXML(f_POB_financingDiscountRate));
+		Device.setDiscountIndicator(f_POB_discountIndicator);
+		Device.setDeviceQuantity(IntXML(f_POB_quantity));
+		Device.setAverageDiscountFactor(DecimalXML(f_POB_avgDiscountFactor));
+		Device.setCompanyCode(f_POB_companyCode);
+		Device.setFirstPlanBillingDate(FechaXML(f_POB_firstPlanBillingDate));
+		Device.setProfitCenter(f_POB_profitCenter);
+		Device.setExcludeFromAllocation(f_POB_excludeFromAllocation);
+		Device.setReferenceAccount(f_POB_referenceAccount);
+		Device.setPOBName(f_POB_pobName);
+		Device.setBillingType(f_POB_billingType);		
+		
 	}
 	
+public static void AddPobCOPAServ(ServiceComplexType Servicio, MIAttributesComplexType COPAService,
+		String f_POB_COPA_customerType,		
+		String f_POB_COPA_callOriginDestination,
+		String f_POB_COPA_channel,					
+		String f_POB_COPA_segment,					
+		String f_POB_COPA_bearerTechnology,		
+		String f_POB_COPA_valueTier,				
+		String f_POB_COPA_proposition,				
+		String f_POB_COPA_deviceTechnology,		
+		String f_POB_COPA_customer,				
+		String f_POB_COPA_spare1,					
+		String f_POB_COPA_spare2,					
+		String f_POB_COPA_brand,					
+		String f_POB_COPA_documentType,			
+		String f_POB_COPA_tradingPartner,			
+		String f_POB_COPA_batch,					
+		String f_POB_COPA_valuationType,			
+		String f_POB_COPA_functionalArea,			
+		String f_POB_COPA_orderNumber,				
+		String f_POB_COPA_salesOffice,				
+		String f_POB_COPA_salesOrg){
+	
+	COPAService.setCustomerType(f_POB_COPA_customerType);
+	COPAService.setCallOriginDestination(f_POB_COPA_callOriginDestination);
+	COPAService.setChannel(f_POB_COPA_channel);
+	COPAService.setSegment(f_POB_COPA_segment);
+	COPAService.setBearerTechnology(f_POB_COPA_bearerTechnology);
+	COPAService.setValueTier(f_POB_COPA_valueTier);
+	COPAService.setProposition(f_POB_COPA_proposition);
+	COPAService.setDeviceTechnology(f_POB_COPA_deviceTechnology);
+	COPAService.setCustomer(f_POB_COPA_customer);
+	COPAService.setSpare1(f_POB_COPA_spare1);
+	COPAService.setSpare2(f_POB_COPA_spare2);
+	COPAService.setBrand(f_POB_COPA_brand);
+	COPAService.setDocumentType(f_POB_COPA_documentType);
+	COPAService.setTradingPartner(f_POB_COPA_tradingPartner);
+	COPAService.setBatch(f_POB_COPA_batch);
+	COPAService.setValuationType(f_POB_COPA_valuationType);
+	COPAService.setFunctionalArea(f_POB_COPA_functionalArea);
+	COPAService.setOrderNumber(f_POB_COPA_orderNumber);
+	COPAService.setSalesOffice(f_POB_COPA_salesOffice);
+	COPAService.setSalesOrg(f_POB_COPA_salesOrg);
+	
+	Servicio.setMIAttributes(COPAService);
+
+}
+
+
+
+public static void AddPobCOPADev(DeviceComplexType Device, MIAttributesComplexType COPADevice,
+		String f_POB_COPA_customerType,		
+		String f_POB_COPA_callOriginDestination,
+		String f_POB_COPA_channel,					
+		String f_POB_COPA_segment,					
+		String f_POB_COPA_bearerTechnology,		
+		String f_POB_COPA_valueTier,				
+		String f_POB_COPA_proposition,				
+		String f_POB_COPA_deviceTechnology,		
+		String f_POB_COPA_customer,				
+		String f_POB_COPA_spare1,					
+		String f_POB_COPA_spare2,					
+		String f_POB_COPA_brand,					
+		String f_POB_COPA_documentType,			
+		String f_POB_COPA_tradingPartner,			
+		String f_POB_COPA_batch,					
+		String f_POB_COPA_valuationType,			
+		String f_POB_COPA_functionalArea,			
+		String f_POB_COPA_orderNumber,				
+		String f_POB_COPA_salesOffice,				
+		String f_POB_COPA_salesOrg){
+	
+	COPADevice.setCustomerType(f_POB_COPA_customerType);
+	COPADevice.setCallOriginDestination(f_POB_COPA_callOriginDestination);
+	COPADevice.setChannel(f_POB_COPA_channel);
+	COPADevice.setSegment(f_POB_COPA_segment);
+	COPADevice.setBearerTechnology(f_POB_COPA_bearerTechnology);
+	COPADevice.setValueTier(f_POB_COPA_valueTier);
+	COPADevice.setProposition(f_POB_COPA_proposition);
+	COPADevice.setDeviceTechnology(f_POB_COPA_deviceTechnology);
+	COPADevice.setCustomer(f_POB_COPA_customer);
+	COPADevice.setSpare1(f_POB_COPA_spare1);
+	COPADevice.setSpare2(f_POB_COPA_spare2);
+	COPADevice.setBrand(f_POB_COPA_brand);
+	COPADevice.setDocumentType(f_POB_COPA_documentType);
+	COPADevice.setTradingPartner(f_POB_COPA_tradingPartner);
+	COPADevice.setBatch(f_POB_COPA_batch);
+	COPADevice.setValuationType(f_POB_COPA_valuationType);
+	COPADevice.setFunctionalArea(f_POB_COPA_functionalArea);
+	COPADevice.setOrderNumber(f_POB_COPA_orderNumber);
+	COPADevice.setSalesOffice(f_POB_COPA_salesOffice);
+	COPADevice.setSalesOrg(f_POB_COPA_salesOrg);
+	
+	Device.setMIAttributes(COPADevice);
+
+}
+
+
 public static void EscribeHoraFileControl(String ficheroSalidaXML, long TiempoInicial){
 	BufferedWriter out = null;
 	try {
