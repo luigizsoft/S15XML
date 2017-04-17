@@ -105,20 +105,20 @@ public class Principal {
 	static String POB_Code="";
 
 	// Para Windows
-	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
-	static final String ficheroSalidaControl="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\";
+//	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
+//	static final String ficheroSalidaControl="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\";
 
 	// PAra unix
-//	static final String ficheroSalidaControl="";
-//	static final String ficheroSalidaXML="";
+	static final String ficheroSalidaControl="";
+	static final String ficheroSalidaXML="";
 
 	
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	static int NuevoContrato=0;
 	static int NumContratos=1;
-	static int NumContratosXfichero=2;
-//	static int NumContratosXfichero=15000;
+//	static int NumContratosXfichero=2;
+	static int NumContratosXfichero=23000;
 	
 	static int GeneradoFichero=0;
 
@@ -265,9 +265,9 @@ if (0==0){ //Para en debug no ejecutar este cacho
 					}
 
 					// Billing Profile
-		//			BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
+					BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
 					// Temporal
-					BigDecimal Importe = new BigDecimal("3");
+				//	BigDecimal Importe = new BigDecimal("3");
 					ServBillProf.getBillingAmount().add(Importe);
 					Servicio.setServiceBillingProfile(ServBillProf);
 
@@ -299,9 +299,9 @@ if (0==0){ //Para en debug no ejecutar este cacho
 
 								}
 								// Billing Profile
-//								BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
+								BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
 								// Temporal
-								BigDecimal Importe = new BigDecimal("3");
+								//BigDecimal Importe = new BigDecimal("3");
 								//
 								DevBillProf.getBillingAmount().add(Importe);
 								Device.setDeviceBillingProfile(DevBillProf);

@@ -50,9 +50,9 @@ public class Utiles {
 		DateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
 		Date Fecha = null ;
 		// Temporal
-		if (FechaTxt.equals("")){
-			FechaTxt="17540303";
-		}
+		//if (FechaTxt.equals("")){
+		//	FechaTxt="17540303";
+		//}
 		//
 		try {
 			Fecha=dateFormat.parse(FechaTxt);
@@ -67,9 +67,9 @@ public class Utiles {
 	
 	public static BigDecimal DecimalXML(String ImporteTxt){
 	// Temporal
-		if (ImporteTxt.equals("")){
-			ImporteTxt="0";
-		}
+	//	if (ImporteTxt.equals("")){
+	//		ImporteTxt="0";
+	//	}
 	//
 		BigDecimal Importe = new BigDecimal(ImporteTxt);
 		return Importe;
