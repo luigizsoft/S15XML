@@ -1,6 +1,7 @@
 package com.vsf;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -102,21 +103,44 @@ public class Principal {
 	static String ID_Servicio="";
 	static String ID_Device="";
 	static String POB_Code="";
+
+	// Para Windows
+	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
+	static final String ficheroSalidaControl="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\";
+
+	// PAra unix
+//	static final String ficheroSalidaControl="";
+//	static final String ficheroSalidaXML="";
+
 	
-//	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
-	static final String ficheroSalidaXML="";
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	static int NuevoContrato=0;
 	static int NumContratos=1;
-//	static int NumContratosXfichero=32;
-	static int NumContratosXfichero=12000;
+	static int NumContratosXfichero=2;
+//	static int NumContratosXfichero=15000;
 	
 	static int GeneradoFichero=0;
 
+	static int CtrlNumPobs=0;
+	static int CtrlContratos=0;
+	static int AntCtrlNumPobs=0;
+	static int AntCNumLinea=0;
+	static int AntNumContratos=0;
 	
+	static long TiempoInicial;
+	static long TiempoFinal;
+	static Date fechaInicio=new Date();
+	static Date fechaFin=new Date();
+
+	static long AntTiempo;
+	static long TiempoActual;
+	static Date AntFecha=new Date();
+	static Date FechaActual=new Date();
 	
+	static long TiempoTranscurrido;
 	
+	static long TotalRegistros=58000000;
 	
 	public static void main(String[] args) throws IOException, DatatypeConfigurationException, JAXBException, InstantiationException, IllegalAccessException  {
 		// TODO Auto-generated method stub
@@ -139,6 +163,13 @@ public class Principal {
 		System.out.println("Comenzando generacion XML...");
 		NumLinea=1;
 		NuevoFichero=1;
+//		File FicheroControl=new File ("Fichero.txt");
+		TiempoInicial=fechaInicio.getTime();
+		AntTiempo=TiempoInicial;
+//		Utiles.EscribeHoraFileControl(Fichero, TiempoInicial);
+		
+		
+		
 		// Lectura del Fichero
 		try {
 			BufferedReader reader =	new BufferedReader(new	FileReader(Fichero));
@@ -229,6 +260,8 @@ if (0==0){ //Para en debug no ejecutar este cacho
 								Campos[f_POB_EndDate]);
 
 						vListaServ.getService().add(Servicio);// Agregamos a la lista de servicios
+						CtrlNumPobs ++;
+
 					}
 
 					// Billing Profile
@@ -262,11 +295,14 @@ if (0==0){ //Para en debug no ejecutar este cacho
 
 
 									vListaDev.getDevice().add(Device);// Agregamos a la lista de servicios
+									CtrlNumPobs ++;
+
 								}
 								// Billing Profile
 //								BigDecimal Importe = new BigDecimal(Campos[f_POB_BillProf]);
 								// Temporal
 								BigDecimal Importe = new BigDecimal("3");
+								//
 								DevBillProf.getBillingAmount().add(Importe);
 								Device.setDeviceBillingProfile(DevBillProf);
 				
@@ -290,11 +326,32 @@ if (0==0){ //Para en debug no ejecutar este cacho
 			// Comprueba cuantos contratos se van a mandar en cada fichero. Controla que sea cuando finaliza el evento.
 			if (NumContratosXfichero<NumContratos && NuevoContrato==1)
 				{
-					Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
+					AntNumContratos=CtrlContratos;
+					CtrlContratos=AntNumContratos+NumContratos;
+					Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero); // Comentado en pruebas
 					NumFichero ++; // Incrementamos para saber el numero de ficheros generados
 					NuevoFichero=1;
 					NumContratos=0;
 					GeneradoFichero=1;
+					
+					
+					// Escribe el fichero de control de exportacion
+
+					TiempoActual=new Date().getTime();
+					long Tiempo=Utiles.RestaFechas(AntTiempo, TiempoActual);
+					long msecTranscurridos=Utiles.RestaFechas(TiempoInicial, TiempoActual);
+					TotalRegistros=TotalRegistros-NumLinea;
+					String Estimado1=Utiles.EstimaTimepoRestante(TotalRegistros,NumLinea-AntCNumLinea,Tiempo,
+							  NumLinea,msecTranscurridos );
+
+					Utiles.AppendFicheroControl(NumFichero, ficheroSalidaControl, NumFichero, 
+							NumLinea, CtrlContratos, CtrlNumPobs,
+							NumLinea-AntCNumLinea,CtrlContratos-AntNumContratos,CtrlNumPobs-AntCtrlNumPobs,Tiempo,msecTranscurridos,Estimado1);
+					AntCtrlNumPobs=CtrlNumPobs;
+					AntCNumLinea=NumLinea;
+					AntTiempo=TiempoActual;
+					
+					
 				} else {GeneradoFichero=0;}
 				NumLinea ++;
 
@@ -306,14 +363,33 @@ if (0==0){ //Para en debug no ejecutar este cacho
 			NumFichero ++;
 			// Cuando acaba con el fichero imprime el resto.
 			if (NumContratosXfichero>=NumContratos ){
-				Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero);
+				Utiles.Genera(S15Incept, ficheroSalidaXML, NumFichero); // Comentado en pruebas
+				// Escribe el fichero de control de exportacion
+				AntNumContratos=CtrlContratos;
+				CtrlContratos=AntNumContratos+NumContratos;
+				TiempoActual=new Date().getTime();
+				long Tiempo=Utiles.RestaFechas(AntTiempo, TiempoActual);
+				long msecTranscurridos=Utiles.RestaFechas(TiempoInicial, TiempoActual);
+				TotalRegistros=TotalRegistros-NumLinea;
+				String Estimado1=Utiles.EstimaTimepoRestante(TotalRegistros,NumLinea-AntCNumLinea,Tiempo,
+																		  NumLinea,msecTranscurridos );
+				Utiles.AppendFicheroControl(NumFichero, ficheroSalidaControl, NumFichero, 
+						NumLinea, CtrlContratos, CtrlNumPobs,
+						NumLinea-AntCNumLinea,CtrlContratos-AntNumContratos,CtrlNumPobs-AntCtrlNumPobs,Tiempo,msecTranscurridos,Estimado1);
+				AntCtrlNumPobs=CtrlNumPobs;
+				AntCNumLinea=NumLinea;
+				AntNumContratos=NumContratos;
+				AntTiempo=TiempoActual;
+				
 			}
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		TiempoFinal=fechaFin.getTime();
+//		Utiles.EscribeHoraFileControl(Fichero, TiempoFinal);
+	
 	System.out.println("Finalizada extraccion !!!!");	
 	
 	}

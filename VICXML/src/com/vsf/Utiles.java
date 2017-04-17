@@ -1,6 +1,10 @@
 package com.vsf;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DateFormat;
@@ -176,7 +180,7 @@ public class Utiles {
 		Servicio.setServiceTransferDate(FechaXML(f_POB_transferDate));
 		Servicio.setServiceStartDate(FechaXML(f_POB_StartDate));
 		Servicio.setServiceEndDate(FechaXML(f_POB_EndDate));
-
+		
 
 	}
 
@@ -197,6 +201,92 @@ public class Utiles {
 
 
 	}
+	
+public static void EscribeHoraFileControl(String ficheroSalidaXML, long TiempoInicial){
+	BufferedWriter out = null;
+	try {
+	//	out=new BufferedWriter(new FileWriter(Ruta+"Control_"+String.valueOf(Sufijo)+".txt", true));
+		out=new BufferedWriter(new FileWriter(ficheroSalidaXML+"Control_Ejecucion.txt", true));
+		out.write("#### Comienzo: " +String.valueOf(TiempoInicial)+"\r\n");
+		
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		if (out !=null){
+			try {
+				out.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+		
+}
+
+public static long RestaFechas (long TiempoInicial, long TiempoFinal ){
+	long Resta;
+	Resta=TiempoFinal-TiempoInicial;
+//	return Resta/(1000);
+	return Resta;
+}
+
+public static String EstimaTimepoRestante(long TotalRegistros, int IncLineas, long msecsInc, int TotalLineas, long msecsTotal){
+	String Texto="";
+	if ((msecsInc!=0 )&&(IncLineas!=0)&&(msecsTotal!=0)&&(TotalLineas!=0)&&(TotalRegistros!=0))
+	{
+//		long Restante1=(TotalRegistros/IncLineas/msecsInc);
+		if (msecsInc<0.0000001){
+			msecsInc=(long) 0.0000001;
+		}
+		double mseclinea=IncLineas/msecsInc;
+		double Totalsecs=TotalRegistros/mseclinea/1000;
+		int Totalmins=(int) (Totalsecs/60);
+		int TotalHoras=Totalmins/60;
+		
+//		 Texto="     ->Estim. Final: "+String.valueOf(Totalmins)+ " mins ("+String.valueOf(TotalHoras)+" horas)";
+		 Texto="     ->Estim. Final: "+String.valueOf(Totalmins);
+		
+	}
+	return Texto;
+	
+}
+
+public static void AppendFicheroControl (int Fichero, String Ruta, int Sufijo, int Lineas,int Contratos, int Pobs,
+										int IncLineas, int IncContratos, int IncPobs, long Tiempo, long msecTranscurridos,
+										String Estimado){
+	
+	BufferedWriter out = null;
+	try {
+	//	out=new BufferedWriter(new FileWriter(Ruta+"Control_"+String.valueOf(Sufijo)+".txt", true));
+		out=new BufferedWriter(new FileWriter(Ruta+"Control_Ejecucion.txt", true));
+		out.write("File: " +String.valueOf(Fichero));
+		out.write(" -Lin: " + String.valueOf(Lineas) +"(+"+String.valueOf(IncLineas)+") ");
+		out.write(" -Cont: " +String.valueOf(Contratos) +"(+"+String.valueOf(IncContratos)+")");
+		out.write(" -Pobs: " +String.valueOf(Pobs) +"(+"+String.valueOf(IncPobs)+") ");
+		out.write(" # (msecs): " +String.valueOf(Tiempo) );
+		out.write(" # Transcurrido: " +String.valueOf(msecTranscurridos)+" msecs - "+String.valueOf(msecTranscurridos/(1000*60))+" mins" );
+		out.write(Estimado +"\r\n" );
+	
+		
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		if (out !=null){
+			try {
+				out.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+}
+
 //	public static void addDeviceAtrib(DeviceComplexType Device, String s_CD_POB, String s_ID_Unico, String s_StartDate, String s_EndDate) throws DatatypeConfigurationException{
 		
 //		Device.setDeviceCode(s_CD_POB);
