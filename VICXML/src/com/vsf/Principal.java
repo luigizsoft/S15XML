@@ -105,20 +105,20 @@ public class Principal {
 	static String POB_Code="";
 
 	// Para Windows
-//	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
-//	static final String ficheroSalidaControl="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\";
+	static final String ficheroSalidaXML="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\vicsalida";
+	static final String ficheroSalidaControl="C:\\VSF-JAVA\\WKSVSF\\VICXML\\salida\\";
 
 	// PAra unix
-	static final String ficheroSalidaControl="";
-	static final String ficheroSalidaXML="";
+//	static final String ficheroSalidaControl="";
+//	static final String ficheroSalidaXML="";
 
 	
 	static int NumFichero =0;
 	static int NuevoFichero=0;
 	static int NuevoContrato=0;
 	static int NumContratos=1;
-//	static int NumContratosXfichero=2;
-	static int NumContratosXfichero=23000;
+	static int NumContratosXfichero=2;
+//	static int NumContratosXfichero=23000;
 	
 	static int GeneradoFichero=0;
 
@@ -228,6 +228,21 @@ if (!ID_Servicio.equals(Campos[f_POB_ID_Unico])||!aContratcID.equals(Campos[f_ev
 					tdInception.setServiceList(vListaServ);// Añadimos la lista al inception
 					tdInception.setDeviceList(vListaDev);// Añadimos la lista al inception
 					tdInception.setEventContractID(Campos[f_eventContractID]);
+					Utiles.addContractAtrib(tdInception, 
+					Campos[f_eventType],
+							Campos[f_eventDate],
+							Campos[f_eventContractID],
+							Campos[f_eventSynonimId],
+							Campos[f_companyCode],
+							Campos[f_contractStartDate],
+							Campos[f_contractEndDate],
+							Campos[f_contractTimeUnit],
+							Campos[f_firstPlanBillingDate],
+							Campos[f_catchUpIndicator],
+							Campos[f_billingType],
+							Campos[f_averageDiscountFactor],
+							Campos[f_currency]);
+
 				} else {NuevoContrato=0;}
 				}
 }				
