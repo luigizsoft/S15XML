@@ -24,6 +24,10 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
+import com.vsf.S15.Inception.AmountComplexType;
+import com.vsf.S15.Inception.AmountListComplexType;
+import com.vsf.S15.Inception.CostComplexType;
+import com.vsf.S15.Inception.CostListComplexType;
 import com.vsf.S15.Inception.CurrencyType;
 import com.vsf.S15.Inception.DeviceComplexType;
 import com.vsf.S15.Inception.InceptionComplexType;
@@ -31,6 +35,8 @@ import com.vsf.S15.Inception.Inceptions;
 import com.vsf.S15.Inception.InceptionsComplexType;
 import com.vsf.S15.Inception.MIAttributesComplexType;
 import com.vsf.S15.Inception.ObjectFactory;
+import com.vsf.S15.Inception.POBLevelComplexType;
+import com.vsf.S15.Inception.POBLevelListComplexType;
 import com.vsf.S15.Inception.ServiceComplexType;
 import com.vsf.S15.Inception.ServiceListComplexType;
 
@@ -356,6 +362,14 @@ public static void AddPobCOPADev(DeviceComplexType Device, MIAttributesComplexTy
 
 }
 
+public static void AddAttribCost(CostListComplexType CostList, CostComplexType CostElement, POBLevelListComplexType PobLvlList,
+		POBLevelComplexType POBlvlElement, AmountListComplexType AmntList, AmountComplexType CostAmount){
+	
+	
+	
+	
+	
+}
 
 public static void EscribeHoraFileControl(String ficheroSalidaXML, long TiempoInicial){
 	BufferedWriter out = null;
