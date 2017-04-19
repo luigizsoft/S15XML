@@ -12,6 +12,10 @@ import java.util.Date;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
 
+import com.vsf.S15.Inception.AmountComplexType;
+import com.vsf.S15.Inception.AmountListComplexType;
+import com.vsf.S15.Inception.CostComplexType;
+import com.vsf.S15.Inception.CostListComplexType;
 import com.vsf.S15.Inception.DeviceBillingProfileComplexType;
 import com.vsf.S15.Inception.DeviceComplexType;
 import com.vsf.S15.Inception.DeviceListComplexType;
@@ -19,6 +23,8 @@ import com.vsf.S15.Inception.InceptionComplexType;
 import com.vsf.S15.Inception.Inceptions;
 import com.vsf.S15.Inception.InceptionsComplexType;
 import com.vsf.S15.Inception.MIAttributesComplexType;
+import com.vsf.S15.Inception.POBLevelComplexType;
+import com.vsf.S15.Inception.POBLevelListComplexType;
 import com.vsf.S15.Inception.ServiceBillingProfileComplexType;
 import com.vsf.S15.Inception.ServiceComplexType;
 import com.vsf.S15.Inception.ServiceListComplexType;
@@ -161,7 +167,13 @@ public class Principal {
 		DeviceBillingProfileComplexType DevBillProf= new DeviceBillingProfileComplexType();
 		MIAttributesComplexType COPAService = new MIAttributesComplexType();
 		MIAttributesComplexType COPADevice = new MIAttributesComplexType();
-		
+		// Costes
+		CostListComplexType CostList= new CostListComplexType();
+		CostComplexType CostElement = new CostComplexType();
+		POBLevelListComplexType PobLvlList=new POBLevelListComplexType();
+		POBLevelComplexType POBlvlElement=new POBLevelComplexType();
+		AmountListComplexType AmntList=new AmountListComplexType();
+		AmountComplexType CostAmount=new AmountComplexType();
 		
 
 		// Variable para guardar y detectar el cambio de contrato
@@ -427,10 +439,25 @@ if (0==0){ //Para en debug no ejecutar este cacho
 				} else {
 						System.out.println("Can't find element type (Service/Device)");
 				}
+				
+				//////////////////////////////////////////////
+				/// PARTE DE COSTES ( A NIVEL DE POB ) ///////
+				//////////////////////////////////////////////
+				
+						
+						
+						
+						
+				//////////////////////
+				/// FIN COSTES ///////
+				//////////////////////
+				
+				
 ////////////////////
 /// FIN POBS ///////
 ////////////////////
-				
+
+
 }	
 
 //////////////////////////////////////
