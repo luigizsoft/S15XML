@@ -87,7 +87,7 @@ public class Utiles {
 		return Valor;
 	}
 	
-	// Comprueba si es un servicio o un dispositivo
+	// Comprueba si es un servicio, un dispositivo, coste o fee
 	public static boolean EsServicio(String Contenido){
 		String auxContenido=Contenido.trim();
 		if (auxContenido.equals("S")){
@@ -96,7 +96,7 @@ public class Utiles {
 		return false;
 		}
 	}
-	// Comprueba si es un servicio o un dispositivo
+	// Comprueba si es un servicio, un dispositivo, coste o fee
 	public static boolean EsDispositivo(String Contenido){
 		String auxContenido=Contenido.trim();
 		if (auxContenido.equals("D")){
@@ -106,6 +106,25 @@ public class Utiles {
 		}
 	}
 
+	// Comprueba si es un servicio, un dispositivo, coste o fee
+	public static boolean EsCoste(String Contenido){
+		String auxContenido=Contenido.trim();
+		if (auxContenido.equals("C")){
+			return true;
+		} else{
+		return false;
+		}
+	}
+	
+	// Comprueba si es un servicio, un dispositivo, coste o fee
+	public static boolean EsFee(String Contenido){
+		String auxContenido=Contenido.trim();
+		if (auxContenido.equals("F")){
+			return true;
+		} else{
+		return false;
+		}
+	}
 	
 	
 	public static void Genera ( Inceptions s15Inceptions, String ficheroSalidaXML, int numfichero) throws JAXBException{
@@ -114,10 +133,10 @@ public class Utiles {
 		String XMLFile=ficheroSalidaXML+"_"+sufijofileXML+".xml";
 		File ficheroXML= new File(XMLFile);
 		JAXBContext contexto = JAXBContext.newInstance(s15Inceptions.getClass() );
-      Marshaller marshaller = contexto.createMarshaller();
-      marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+		Marshaller marshaller = contexto.createMarshaller();
+		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
           Boolean.TRUE);
-      marshaller.marshal(s15Inceptions,ficheroXML);	
+		marshaller.marshal(s15Inceptions,ficheroXML);	
 	}
 	
 	public static boolean CambioContrato(String ContractA, String ContractB){
@@ -455,6 +474,28 @@ public static void AppendFicheroControl (int Fichero, String Ruta, int Sufijo, i
 	
 	
 }
+
+
+
+public static void addCostAtrib(CostComplexType Coste, String f_costCompanyCode, String f_costTransferDate) throws DatatypeConfigurationException {
+	Coste.setCompanyCode(f_costCompanyCode);
+	Coste.setCostTransferDate(FechaXML(f_costTransferDate));
+}
+
+
+public static void addPOBLvlAtrib(POBLevelComplexType pOBlvlElement, String f_cost_POBID) {
+	pOBlvlElement.setServiceIDDeviceID(f_cost_POBID);
+}
+
+
+public static void addCostAmountAtrib(AmountComplexType amountElement, BigDecimal importe, String f_costType, String f_costRefAccount) {
+	// TODO Auto-generated method stub
+	amountElement.setCostAmount(importe);
+	amountElement.setCostType(f_costType);
+	amountElement.setReferenceAccount(f_costRefAccount);
+}
+
+
 
 //	public static void addDeviceAtrib(DeviceComplexType Device, String s_CD_POB, String s_ID_Unico, String s_StartDate, String s_EndDate) throws DatatypeConfigurationException{
 		
